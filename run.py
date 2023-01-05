@@ -8,9 +8,9 @@ color='red'
 color_map={'red':'blue','blue':'red'}
 
 for i in range(10):
-    board.update_data(color)
+    column=board.update_data(color)
     board.display()
-    board.horizontal_check()
+    board.check_winner(column,color)
     color=color_map[color]
     
 

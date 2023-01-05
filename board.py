@@ -1,12 +1,12 @@
 import os
-
+import time
 class Board:
     def __init__(self,data):
         """
         Creates an instance of Board
         """
         Board.data=data
-        Board.highest_counter={i:5 for i in range(7)}
+        Board.highest_counter={i:6 for i in range(7)}
 
     def display(self):
             """
@@ -32,10 +32,27 @@ class Board:
         Updates the board data based on user input
         """
         column = int(input('Choose Column '))
-        if Board.highest_counter[column] == -1:
+        if Board.highest_counter[column] == 0:
             column = int(input('Column Full. Choose Another Column  '))
-        else:  
+        else: 
+            Board.highest_counter[column] -=1 
             Board.data[Board.highest_counter[column]][column] = color
-        Board.highest_counter[column] -=1
-    
+        return column
 
+    def check_winner(self,column,color):
+        if column <=3:
+            if [Board.data[Board.highest_counter[column]][column+i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        else:
+            if [Board.data[Board.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        
+        if Board.highest_counter[column]<=2:
+            if [Board.data[Board.highest_counter[column]+i][column] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        else:
+            if [Board.data[Board.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+
+            
+                
