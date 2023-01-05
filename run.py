@@ -22,6 +22,20 @@ def print_board(board_data):
     
 
 board_data=[['.' for i in range(7)] for j in range(6)]
+max_rows={i:5 for i in range(7)}
 print_board(board_data)
 
+
+for i in range(10):
+    column = int(input('Choose Column '))
+    if max_rows[column] == -1:
+        column = int(input('Column Full. Choose Another Column  '))
+    else:  
+        if i % 2 == 1:
+            board_data[max_rows[column]][column] = 'red'
+        else:
+            board_data[max_rows[column]][column] = 'blue'
+        print_board(board_data)
+        max_rows[column] -=1
+    
 
