@@ -13,7 +13,7 @@ class Board:
             Prints the game board in its current state to the terminal
             """
             os.system('cls||clear')
-            print('-------------------------')
+            print('_________________________')
             for row in Board.data:
                 display_row=''
                 for entry in row:
@@ -25,7 +25,8 @@ class Board:
                         display_row +=' '+ entry + ' '
                 display_row='| ' + display_row + ' |'
                 print(display_row)
-            print('-------------------------')  
+            print('_________________________')
+            print('   0  1  2  3  4  5  6  ')  
 
     def update_data(self,color):
         """
@@ -54,5 +55,15 @@ class Board:
             if [Board.data[Board.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
                 print(color,'won')
 
-            
-                
+        if column <=3 and Board.highest_counter[column]<=2:
+            if [Board.data[Board.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        elif column <=3:
+            if [Board.data[Board.highest_counter[column]-i][column+i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        elif Board.highest_counter[column]<=2:
+            if [Board.data[Board.highest_counter[column]+i][column-i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')
+        else:
+             if [Board.data[Board.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
+                print(color,'won')

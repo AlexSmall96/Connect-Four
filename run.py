@@ -7,7 +7,7 @@ board.display()
 color='red'
 color_map={'red':'blue','blue':'red'}
 
-for i in range(10):
+for i in range(20):
     column=board.update_data(color)
     board.display()
     board.check_winner(column,color)
