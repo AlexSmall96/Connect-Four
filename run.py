@@ -6,11 +6,15 @@ board=Board(data)
 board.display()
 color='red'
 color_map={'red':'blue','blue':'red'}
-
-for i in range(20):
+game_running=True
+count=0
+while board.running and count < 42:
+    color=color_map[color]
     column=board.update_data(color)
     board.display()
-    board.check_winner(column,color)
-    color=color_map[color]
+    game_running=board.check_winner(column,color)
+    count += 1
+
+print(f"Well Done {color}, you won!" )   
     
 

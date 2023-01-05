@@ -7,7 +7,7 @@ class Board:
         """
         Board.data=data
         Board.highest_counter={i:6 for i in range(7)}
-
+        Board.running=True
     def display(self):
             """
             Prints the game board in its current state to the terminal
@@ -43,27 +43,29 @@ class Board:
     def check_winner(self,column,color):
         if column <=3:
             if [Board.data[Board.highest_counter[column]][column+i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
+                
         else:
             if [Board.data[Board.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
         
         if Board.highest_counter[column]<=2:
             if [Board.data[Board.highest_counter[column]+i][column] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
         else:
             if [Board.data[Board.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
 
         if column <=3 and Board.highest_counter[column]<=2:
             if [Board.data[Board.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
         elif column <=3:
             if [Board.data[Board.highest_counter[column]-i][column+i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
         elif Board.highest_counter[column]<=2:
             if [Board.data[Board.highest_counter[column]+i][column-i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
         else:
              if [Board.data[Board.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
-                print(color,'won')
+                Board.running=False
+        return Board.running
