@@ -1,6 +1,5 @@
 from board import Board
 import os
-
 def run_game():
     play_again = True
     while play_again:
@@ -20,7 +19,11 @@ def run_game():
         color=color_cycle[color]
         print(f"Well Done {color}, you won!" )   
         play_again=input('Would you like to play again? (y/n) ')=='y'
-
+    print("""
+    Thank you for playing connect 4. 
+    This programme was created by Alex Small. 
+    Please visit my GitHub profile https://github.com/AlexSmall96.
+    """)
     
 run_game()
 
