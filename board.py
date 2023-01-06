@@ -35,13 +35,26 @@ class Board:
         """
         Updates the board data based on user input
         """
-        column = int(input(counters[color] + ' Choose a Column (0-6) '))
-        if self.highest_counter[column] == 0:
-            column = int(input(counters[color] + ' Column Full. Choose Another Column (0-6)  '))
-        else: 
-            self.highest_counter[column] -=1 
-            self.data[self.highest_counter[column]][column] = color
-        return column
+        counter_added=False
+        column = input(counters[color] + ' Choose a Column (0-6) ')
+        if column.isnumeric():
+            column=int(column)
+            if column >=0 and column <=6:
+                if self.highest_counter[column] > 0:
+                    self.highest_counter[column] -=1 
+                    self.data[self.highest_counter[column]][column] = color
+                    counter_added=True
+                else:
+                    print(' Column Full. Choose another column. ')
+                    time.sleep(2)
+            else:
+                print('Please choose a whole number between 0 and 6.')
+                time.sleep(2)
+        else:
+            print('Please choose a whole number between 0 and 6.')
+            time.sleep(2)
+        return column, counter_added
+        
 
     def check_winner(self,column,color):
         """
