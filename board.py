@@ -1,26 +1,29 @@
 import os
 import time
+
+counters={'red':'\033[2;31m' + 'o' + '\033[0;0m','blue':'\033[2;34m' + 'o' + '\033[0;0m'}
+
 class Board:
     def __init__(self,data):
         """
         Creates an instance of Board
         """
-        Board.data=data
-        Board.highest_counter={i:6 for i in range(7)}
-        Board.running=True
+        self.data=data
+        self.highest_counter={i:6 for i in range(7)}
+        self.running=True
     def display(self):
             """
             Prints the game board in its current state to the terminal
             """
             os.system('cls||clear')
             print('_________________________')
-            for row in Board.data:
+            for row in self.data:
                 display_row=''
                 for entry in row:
                     if entry == 'red':
-                        display_row +=' '+ '\033[2;31m' + 'o' + '\033[0;0m' ' '
+                        display_row +=' '+ counters['red'] +' '
                     elif entry == 'blue':
-                        display_row +=' '+ '\033[2;34m' + 'o' + '\033[0;0m' ' '
+                        display_row +=' '+ counters['blue'] +  ' '
                     else:
                         display_row +=' '+ entry + ' '
                 display_row='| ' + display_row + ' |'
@@ -32,40 +35,43 @@ class Board:
         """
         Updates the board data based on user input
         """
-        column = int(input('Choose Column '))
-        if Board.highest_counter[column] == 0:
+        column = int(input(counters[color] + ' Choose Column '))
+        if self.highest_counter[column] == 0:
             column = int(input('Column Full. Choose Another Column  '))
         else: 
-            Board.highest_counter[column] -=1 
-            Board.data[Board.highest_counter[column]][column] = color
+            self.highest_counter[column] -=1 
+            self.data[self.highest_counter[column]][column] = color
         return column
 
     def check_winner(self,column,color):
+        """
+        Checks the most recent counter played for any 4 surrounding it
+        """
         if column <=3:
-            if [Board.data[Board.highest_counter[column]][column+i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+            if [self.data[self.highest_counter[column]][column+i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
                 
         else:
-            if [Board.data[Board.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+            if [self.data[self.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
         
-        if Board.highest_counter[column]<=2:
-            if [Board.data[Board.highest_counter[column]+i][column] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+        if self.highest_counter[column]<=2:
+            if [self.data[self.highest_counter[column]+i][column] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
         else:
-            if [Board.data[Board.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+            if [self.data[self.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
 
-        if column <=3 and Board.highest_counter[column]<=2:
-            if [Board.data[Board.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+        if column <=3 and self.highest_counter[column]<=2:
+            if [self.data[self.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
         elif column <=3:
-            if [Board.data[Board.highest_counter[column]-i][column+i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
-        elif Board.highest_counter[column]<=2:
-            if [Board.data[Board.highest_counter[column]+i][column-i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
+            if [self.data[self.highest_counter[column]-i][column+i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
+        elif self.highest_counter[column]<=2:
+            if [self.data[self.highest_counter[column]+i][column-i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
         else:
-             if [Board.data[Board.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
-                Board.running=False
-        return Board.running
+             if [self.data[self.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
+                self.running=False
+        return self.running
