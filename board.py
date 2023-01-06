@@ -35,9 +35,9 @@ class Board:
         """
         Updates the board data based on user input
         """
-        column = int(input(counters[color] + ' Choose Column '))
+        column = int(input(counters[color] + ' Choose a Column (0-6) '))
         if self.highest_counter[column] == 0:
-            column = int(input('Column Full. Choose Another Column  '))
+            column = int(input(counters[color] + ' Column Full. Choose Another Column (0-6)  '))
         else: 
             self.highest_counter[column] -=1 
             self.data[self.highest_counter[column]][column] = color
