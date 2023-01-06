@@ -1,9 +1,7 @@
 from board import Board
 import os
-import sys
 
 def run_game():
-    sys.exit()
     play_again=True
     while play_again:
         data=[['.' for i in range(7)] for j in range(6)]
