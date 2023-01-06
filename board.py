@@ -45,14 +45,11 @@ class Board:
                     self.data[self.highest_counter[column]][column] = color
                     counter_added=True
                 else:
-                    print(' Column Full. Choose another column. ')
-                    time.sleep(2)
+                    print(' Column ' + str(column) +' Full. Choose another column. ')
             else:
                 print('Please choose a whole number between 0 and 6.')
-                time.sleep(2)
         else:
             print('Please choose a whole number between 0 and 6.')
-            time.sleep(2)
         return column, counter_added
         
 
