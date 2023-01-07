@@ -1,7 +1,7 @@
 import os
 import time
 
-counters={'red':'\033[1;33m' + 'o' + '\033[0;0m','blue':'\033[1;32m' + 'o' + '\033[0;0m'}
+counters={'red':'\033[1;31m' + 'o' + '\033[0;0m','yellow':'\033[1;33m' + 'o' + '\033[0;0m'}
 
 class Board:
     def __init__(self,data):
@@ -20,12 +20,10 @@ class Board:
             for row in self.data:
                 display_row=''
                 for entry in row:
-                    if entry == 'red':
-                        display_row +=' '+ counters['red'] +' '
-                    elif entry == 'blue':
-                        display_row +=' '+ counters['blue'] +  ' '
-                    else:
+                    if entry == '.':
                         display_row +=' '+ entry + ' '
+                    else:
+                        display_row +=' '+ counters[entry] +' '   
                 display_row='| ' + display_row + ' |'
                 print(display_row)
             print('_________________________')
