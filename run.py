@@ -4,7 +4,7 @@ import setup
 import time
 
 setup.print_title()
-time.sleep(3)
+input('Press Enter for Instructions ')
 setup.print_instructions()
 play_again = input('Ready?') == 'y'
 
