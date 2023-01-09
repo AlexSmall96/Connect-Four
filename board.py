@@ -1,5 +1,6 @@
 import os
 import time
+import random
 
 counters={'red':'\033[1;31m' + '●' + '\033[0;0m','yellow':'\033[1;33m' + '●' + '\033[0;0m'}
 
@@ -49,7 +50,19 @@ class Board:
         else:
             print('Please choose a whole number between 0 and 6.')
         return column, counter_added
-        
+
+    def update_data_computer(self,color):
+        """
+        Updates the board data based on user input
+        """
+        counter_added=False
+        column = random.randint(0, 6)
+        if self.highest_counter[column] > 0:
+            self.highest_counter[column] -=1 
+            self.data[self.highest_counter[column]][column] = color
+            counter_added=True
+        return column, counter_added        
+    
 
     def check_winner(self,column,color):
         """
