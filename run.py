@@ -13,7 +13,7 @@ while play_again:
     board=Board(data)
     board.display()
     color='red'
-    color_cycle={'red':'blue','blue':'red'}
+    color_cycle={'red':'yellow','yellow':'red'}
     count=0
     while board.running and count < 42:
         column,counter_added=board.update_data(color)

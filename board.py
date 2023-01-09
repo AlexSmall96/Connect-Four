@@ -1,7 +1,7 @@
 import os
 import time
 
-counters={'red':'\033[1;31m' + 'o' + '\033[0;0m','yellow':'\033[1;33m' + 'o' + '\033[0;0m'}
+counters={'red':'\033[1;31m' + '●' + '\033[0;0m','yellow':'\033[1;33m' + '●' + '\033[0;0m'}
 
 class Board:
     def __init__(self,data):
