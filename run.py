@@ -4,10 +4,15 @@ import setup
 import time
 
 setup.print_title()
+setup.print_welcome()
 input('Press Enter for Instructions ')
 setup.print_instructions()
-play_again = input('Ready?') == 'y'
+input('Press Enter to set up the game!')
 
+no_players = setup.set_no_players()
+player_1,player_2 = setup.set_usernames(no_players)
+
+play_again=True
 while play_again:
     data=[['.' for i in range(7)] for j in range(6)]
     board=Board(data)
@@ -16,7 +21,7 @@ while play_again:
     color_cycle={'red':'yellow','yellow':'red'}
     count=0
     while board.running and count < 42:
-        column,counter_added=board.update_data(color)
+        column,counter_added=board.update_data_human(color)
         if counter_added:
             board.display()
             board.running=board.check_winner(column,color)

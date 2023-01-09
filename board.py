@@ -29,7 +29,7 @@ class Board:
             print('_________________________')
             print('   0  1  2  3  4  5  6  ')  
 
-    def update_data(self,color):
+    def update_data_human(self,color):
         """
         Updates the board data based on user input
         """
