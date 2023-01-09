@@ -85,15 +85,16 @@ def select_colors(usernames):
             
    
 
-def run_game(no_players,usercolors,usernames):
+def run_game(no_players,user_colors,usernames):
     if no_players == 2:
         play_again=True
         while play_again:
             data=[['.' for i in range(7)] for j in range(6)]
             board=Board(data)
             board.display()
-            color='red'
-            color_cycle={'red':'yellow','yellow':'red'}
+            user=usernames[0]
+            color=user_colors[user]
+            user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
             count=0
             while board.running and count < 42:
                 column,counter_added=board.update_data_human(color)
@@ -101,9 +102,11 @@ def run_game(no_players,usercolors,usernames):
                     board.display()
                     board.running=board.check_winner(column,color)
                     count += 1
-                    color=color_cycle[color]
-            color=color_cycle[color]
-            print(f"Well Done {color}, you won!" )   
+                    user = user_cycle[user]
+                    color= user_colors[user]
+            user = user_cycle[user]
+            color= user_colors[user]
+            print(f"Well Done {user}, you won!" )   
             play_again=input('Would you like to play again? (y/n) ')=='y'
         print("""
 Thank you for playing connect 4. 
