@@ -95,6 +95,8 @@ def select_colors(usernames):
             user_colors[usernames[1]] = 'red'
             user_colors[usernames[0]] = 'yellow'
             correct_input = True
+        else:
+            print('Please Select from Available Colors')
     return user_colors,usernames
             
         
