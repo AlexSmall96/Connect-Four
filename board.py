@@ -17,7 +17,7 @@ class Board:
             Prints the game board in its current state to the terminal
             """
             os.system('cls||clear')
-            print(' ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
+            print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
             for row in self.data:
                 display_row=''
                 for entry in row:
@@ -25,10 +25,10 @@ class Board:
                         display_row +=' '+ entry + ' '
                     else:
                         display_row +=' '+ counters[entry] +' '   
-                display_row='▮ ' + display_row + ' ▮'
+                display_row='                     ▮ ' + display_row + ' ▮'
                 print(display_row)
-            print(' ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-            print('   0  1  2  3  4  5  6  ') 
+            print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
+            print('                        0  1  2  3  4  5  6  ') 
             print('\n')
 
     def update_data_human(self,color,user):
@@ -36,7 +36,7 @@ class Board:
         Updates the board data based on user input
         """
         counter_added=False
-        column = input(user + ' ' + counters[color] + ' Choose a Column (0-6) ')
+        column = input('                     '+user + ' ' + counters[color] + ' Choose a Column (0-6) ')
         if column.isnumeric():
             column=int(column)
             if column >=0 and column <=6:
@@ -45,11 +45,11 @@ class Board:
                     self.data[self.highest_counter[column]][column] = color
                     counter_added=True
                 else:
-                    print(' Column ' + str(column) +' Full. Choose another column. ')
+                    print('                     Column ' + str(column) +' Full. Choose another column. ')
             else:
-                print('Please choose a whole number between 0 and 6.')
+                print('                    Please choose a whole number between 0 and 6.')
         else:
-            print('Please choose a whole number between 0 and 6.')
+            print('                    Please choose a whole number between 0 and 6.')
         return column, counter_added
 
     def update_data_computer(self,color):
