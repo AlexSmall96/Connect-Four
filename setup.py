@@ -16,7 +16,7 @@ def print_title():
     print('                           █     '+'\033[1;33m'+'    ▀▄▄▄▀ '+'\033[0;0m'+'    ▀▄▄▄▀    █    ▀▄   ') 
                              
 def print_welcome():
-    print('Welcome to the classic game Connect Four!')   
+    print('Welcome to Connect Four!')   
 
 
 def print_instructions():
@@ -125,9 +125,9 @@ Please visit my GitHub profile https://github.com/AlexSmall96.
             count=0
             while board.running and count < 42:
                 if count % 2 == 0:
-                    column,counter_added=board.update_data_computer(color)
-                else:
                     column,counter_added=board.update_data_human(color)
+                else:
+                    column,counter_added=board.update_data_computer(color)
                 if counter_added:
                     board.display()
                     board.running=board.check_winner(column,color)
