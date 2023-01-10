@@ -16,7 +16,7 @@ def print_title():
     print('                           █     '+'\033[1;33m'+'    ▀▄▄▄▀ '+'\033[0;0m'+'    ▀▄▄▄▀    █    ▀▄   ') 
                              
 def print_welcome():
-    print('Welcome to Connect Four!')   
+    print('Welcome to the classic game Connect Four!')   
 
 
 def print_instructions():
@@ -66,7 +66,10 @@ def set_usernames(no_players):
 
 def select_colors(usernames):
     if len(usernames) == 1:
-        usernames.append('computer')
+        if usernames[0] != 'computer':
+            usernames.append('computer')
+        else: 
+            usernames.append('computer 2')
     user_colors = {}
     correct_input = False
     while not correct_input: 
@@ -86,62 +89,34 @@ def select_colors(usernames):
    
 
 def run_game(no_players,user_colors,usernames):
-    if no_players == 2:
-        play_again=True
-        while play_again:
-            data=[['.' for i in range(7)] for j in range(6)]
-            board=Board(data)
-            board.display()
-            user=usernames[0]
-            color=user_colors[user]
-            user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
-            count=0
-            while board.running and count < 42:
+    play_again=True
+    while play_again:
+        data=[['.' for i in range(7)] for j in range(6)]
+        board=Board(data)
+        board.display()
+        user=usernames[0]
+        color=user_colors[user]
+        user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
+        count=0
+        while board.running and count < 42:
+            if no_players == 1 and count % 2 != 0:
+                print('Computer is thinking...')
+                time.sleep(2)
+                column,counter_added=board.update_data_computer(color)
+            else:
                 column,counter_added=board.update_data_human(color)
-                if counter_added:
-                    board.display()
-                    board.running=board.check_winner(column,color)
-                    count += 1
+            if counter_added:
+                board.display()
+                board.running=board.check_winner(column,color)
+                count += 1
+                if board.running:
                     user = user_cycle[user]
                     color= user_colors[user]
-            user = user_cycle[user]
-            color= user_colors[user]
-            print(f"Well Done {user}, you won!" )   
-            play_again=input('Would you like to play again? (y/n) ')=='y'
-        print("""
+        print(f"Well Done {user}, you won!" )   
+        play_again=input('Would you like to play again? (y/n) ')=='y'
+    print("""
 Thank you for playing connect 4. 
 This programme was created by Alex Small. 
 Please visit my GitHub profile https://github.com/AlexSmall96.
 """)
-    else:
-        play_again=True
-        while play_again:
-            data=[['.' for i in range(7)] for j in range(6)]
-            board=Board(data)
-            board.display()
-            user=usernames[0]
-            color=user_colors[user]
-            user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
-            count=0
-            while board.running and count < 42:
-                if count % 2 == 0:
-                    column,counter_added=board.update_data_human(color)
-                else:
-                    column,counter_added=board.update_data_computer(color)
-                if counter_added:
-                    board.display()
-                    board.running=board.check_winner(column,color)
-                    count += 1
-                    user = user_cycle[user]
-                    color= user_colors[user]
-            user = user_cycle[user]
-            color= user_colors[user]
-            print(f"Well Done {user}, you won!" )   
-            play_again=input('Would you like to play again? (y/n) ')=='y'
-        print("""
-Thank you for playing connect 4. 
-This programme was created by Alex Small. 
-Please visit my GitHub profile https://github.com/AlexSmall96.
-""")
-
-
+    
