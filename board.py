@@ -30,12 +30,12 @@ class Board:
             print('_________________________')
             print('   0  1  2  3  4  5  6  ')  
 
-    def update_data_human(self,color):
+    def update_data_human(self,color,user):
         """
         Updates the board data based on user input
         """
         counter_added=False
-        column = input(counters[color] + ' Choose a Column (0-6) ')
+        column = input(user + ' ' + counters[color] + ' Choose a Column (0-6) ')
         if column.isnumeric():
             column=int(column)
             if column >=0 and column <=6:
