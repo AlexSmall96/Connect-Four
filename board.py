@@ -17,7 +17,7 @@ class Board:
             Prints the game board in its current state to the terminal
             """
             os.system('cls||clear')
-            print('_________________________')
+            print(' ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
             for row in self.data:
                 display_row=''
                 for entry in row:
@@ -25,9 +25,9 @@ class Board:
                         display_row +=' '+ entry + ' '
                     else:
                         display_row +=' '+ counters[entry] +' '   
-                display_row='| ' + display_row + ' |'
+                display_row='▮ ' + display_row + ' ▮'
                 print(display_row)
-            print('_________________________')
+            print(' ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
             print('   0  1  2  3  4  5  6  ')  
 
     def update_data_human(self,color,user):
