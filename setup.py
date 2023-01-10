@@ -5,6 +5,7 @@ import time
 
 
 def print_title():
+    os.system('cls||clear')
     print('               ▄▀▀▀▀'+'\033[1;31m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    ██   █    ██   █   █▀▀▀▀▀    ▄▀▀▀▀   ▀▀▀█▀▀▀')                 
     print('              █'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █ █  █    █ █  █   █▄▄▄▄▄   █           █  ')                 
     print('              █'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █  █ █    █  █ █   █        █           █   ')                
@@ -35,8 +36,7 @@ To play the game, each turn select the columnn you want to add a
 counter to, and add the corresponding column number in the input section. 
 This will automatically drop a counter to the highest space in the column.
 
-At the end of the game, press Y or Yes to play again, 
-or N or No to exit.
+At the end of the game, press Y to play again, and any other key to exit.
 Good Luck!""")
 
 def set_no_players():
@@ -66,10 +66,10 @@ def set_usernames(no_players):
 
 def select_colors(usernames):
     if len(usernames) == 1:
-        if usernames[0] != 'computer':
-            usernames.append('computer')
+        if usernames[0].lower() != 'computer':
+            usernames.append('Computer')
         else: 
-            usernames.append('computer 2')
+            usernames.append('Computer 2')
     user_colors = {}
     correct_input = False
     while not correct_input: 
@@ -101,7 +101,7 @@ def run_game(no_players,user_colors,usernames):
         while board.running and count < 42:
             if no_players == 1 and count % 2 != 0:
                 print('Computer is thinking...')
-                time.sleep(2)
+                time.sleep(1.5)
                 column,counter_added=board.update_data_computer(color)
             else:
                 column,counter_added=board.update_data_human(color)
@@ -113,7 +113,7 @@ def run_game(no_players,user_colors,usernames):
                     user = user_cycle[user]
                     color= user_colors[user]
         print(f"Well Done {user}, you won!" )   
-        play_again=input('Would you like to play again? (y/n) ')=='y'
+        play_again=input('Would you like to play again? ').lower() == 'y'
     print("""
 Thank you for playing connect 4. 
 This programme was created by Alex Small. 
