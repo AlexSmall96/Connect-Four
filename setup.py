@@ -1,7 +1,7 @@
 from board import Board
 import os
 import time
-
+from board import counters
 
 
 def print_title():
@@ -80,7 +80,7 @@ def select_colors(usernames):
     user_colors = {}
     correct_input = False
     while not correct_input: 
-        choice = input(f"{usernames[0]} Select a color : Red or Yellow ").lower()
+        choice = input(f"{usernames[0]} Select a color : Red {counters['red']} or Yellow {counters['yellow']} ").lower()
         if choice == 'red':
             user_colors[usernames[0]] = 'red'
             user_colors[usernames[1]] = 'yellow'
