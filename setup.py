@@ -103,6 +103,7 @@ def run_game(no_players,user_colors,usernames):
     color=user_colors[user]
     user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
     count=0
+    computer_won = False
     while board.running and count < 42:
         if no_players == 1 and count % 2 != 0:
             print('Computer is thinking...')
@@ -113,10 +114,16 @@ def run_game(no_players,user_colors,usernames):
         if counter_added:
             board.display()
             board.running=board.check_winner(column,color)
-            count += 1
             if board.running:
                 user = user_cycle[user]
                 color= user_colors[user]
-    print(f"Well Done {user}, you won!" )   
+                count += 1
+            else:
+                if no_players == 1 and count % 2 != 0:
+                    computer_won = True
+    if computer_won:
+        print(f"Computer Won ... Better luck next time {usernames[0]}.")
+    else:
+        print(f"Well Done {user}, you won!" )   
     play_again=input('Would you like to play again? ').lower() == 'y'
     return play_again
