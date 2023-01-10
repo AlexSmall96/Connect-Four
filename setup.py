@@ -7,15 +7,15 @@ from board import counters
 def print_title():
     os.system('cls||clear')
     print('\n') 
-    print(' ▄▀▀▀▀'+'\033[1;31m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    ██   █    ██   █   █▀▀▀▀▀    ▄▀▀▀▀   ▀▀▀█▀▀▀')                 
-    print('█'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █ █  █    █ █  █   █▄▄▄▄▄   █           █  ')                 
-    print('█'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █  █ █    █  █ █   █        █           █   ')                
-    print(' ▀▄▄▄▄'+'\033[1;31m'+'    ▀▄▄▄▀'+'\033[0;0m'+'    █   ██    █   ██   █▄▄▄▄▄    ▀▄▄▄▄      █   ')                
+    print('      ▄▀▀▀▀'+'\033[1;31m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    ██   █    ██   █   █▀▀▀▀▀    ▄▀▀▀▀   ▀▀▀█▀▀▀')                 
+    print('     █'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █ █  █    █ █  █   █▄▄▄▄▄   █           █  ')                 
+    print('     █'+'\033[1;31m'+'        █     █'+'\033[0;0m'+'   █  █ █    █  █ █   █        █           █   ')                
+    print('      ▀▄▄▄▄'+'\033[1;31m'+'    ▀▄▄▄▀'+'\033[0;0m'+'    █   ██    █   ██   █▄▄▄▄▄    ▀▄▄▄▄      █   ')                
     print('\n')                                                                                                              
-    print('              █▀▀▀▀▀'+'\033[1;33m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    █     █   █▀▀▀▀▀█  ') 
-    print('              █▄▄▄▄▄'+'\033[1;33m'+'   █     █'+'\033[0;0m'+'   █     █   █     █ ')   
-    print('              █     '+'\033[1;33m'+'   █     █'+'\033[0;0m'+'   █     █   █▀▀▀█▀▀      ')           
-    print('              █     '+'\033[1;33m'+'    ▀▄▄▄▀ '+'\033[0;0m'+'    ▀▄▄▄▀    █    ▀▄   ') 
+    print('                  █▀▀▀▀▀'+'\033[1;33m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    █     █   █▀▀▀▀▀█  ') 
+    print('                  █▄▄▄▄▄'+'\033[1;33m'+'   █     █'+'\033[0;0m'+'   █     █   █     █ ')   
+    print('                  █     '+'\033[1;33m'+'   █     █'+'\033[0;0m'+'   █     █   █▀▀▀█▀▀      ')           
+    print('                  █     '+'\033[1;33m'+'    ▀▄▄▄▀ '+'\033[0;0m'+'    ▀▄▄▄▀    █    ▀▄   ') 
     print('\n')
 
 def print_welcome():
@@ -114,7 +114,7 @@ def run_game(no_players,user_colors,usernames):
     computer_won = False
     while board.running and count < 42:
         if no_players == 1 and count % 2 != 0:
-            print('Computer is thinking...')
+            print('                     Computer is thinking...')
             time.sleep(1.5)
             print ("\033[A                             \033[A")
             column,counter_added=board.update_data_computer(color)
@@ -131,8 +131,8 @@ def run_game(no_players,user_colors,usernames):
                 if no_players == 1 and count % 2 != 0:
                     computer_won = True
     if computer_won:
-        print(f"Computer Won ... Better luck next time {usernames[0]}.")
+        print(f"                     Computer Won ... Better luck next time {usernames[0]}.")
     else:
-        print(f"Well Done {user}, you won!" )   
-    play_again=input('Would you like to play again? ').lower() == 'y'
+        print(f"                     Well Done {user}, you won!" )   
+    play_again=input('                     Would you like to play again? ').lower() == 'y'
     return play_again

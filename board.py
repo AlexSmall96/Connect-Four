@@ -17,6 +17,8 @@ class Board:
             Prints the game board in its current state to the terminal
             """
             os.system('cls||clear')
+            print('\n')
+            print('\n')
             print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
             for row in self.data:
                 display_row=''
