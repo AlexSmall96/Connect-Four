@@ -9,10 +9,6 @@ while play_again:
     input('Press Enter to set up the game!')
     no_players = setup.set_no_players()
     usernames = setup.set_usernames(no_players)
-    if no_players == 2:
-        while usernames[0] == usernames[1]:
-            print('Usernames must be different')
-            usernames = setup.set_usernames(no_players)
     user_colors,usernames = setup.select_colors(usernames)
     play_again=setup.run_game(no_players,user_colors,usernames)
 

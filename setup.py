@@ -67,8 +67,14 @@ def set_usernames(no_players):
         player_1 = input('Player 1 - Please enter your username ')
         return [player_1]
     else:
-        player_1 = input('Player 1 - Please enter your username ')
-        player_2 = input('Player 2 - Please enter your username ')
+        correct_input = False
+        while not correct_input:
+            player_1 = input('Player 1 - Please enter your username ')
+            player_2 = input('Player 2 - Please enter your username ')
+            if player_1.lower() != player_2.lower():
+                correct_input=True
+            else:
+                print('Usernames must be different')
         return [player_1, player_2]
 
 def select_colors(usernames):
