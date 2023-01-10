@@ -28,7 +28,8 @@ class Board:
                 display_row='▮ ' + display_row + ' ▮'
                 print(display_row)
             print(' ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-            print('   0  1  2  3  4  5  6  ')  
+            print('   0  1  2  3  4  5  6  ') 
+            print('\n')
 
     def update_data_human(self,color,user):
         """

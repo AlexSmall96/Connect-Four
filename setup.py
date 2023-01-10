@@ -116,6 +116,7 @@ def run_game(no_players,user_colors,usernames):
         if no_players == 1 and count % 2 != 0:
             print('Computer is thinking...')
             time.sleep(1.5)
+            print ("\033[A                             \033[A")
             column,counter_added=board.update_data_computer(color)
         else:
             column,counter_added=board.update_data_human(color,user)
