@@ -54,19 +54,6 @@ class Board:
             print('                    Please choose a whole number between 0 and 6.')
         return column, counter_added
 
-    def update_data_computer(self,color):
-        """
-        Updates the board data based on user input
-        """
-        counter_added=False
-        column = random.randint(0, 6)
-        if self.highest_counter[column] > 0:
-            self.highest_counter[column] -=1 
-            self.data[self.highest_counter[column]][column] = color
-            counter_added=True
-        return column, counter_added        
-    
-
     def check_winner(self,column,color):
         """
         Checks the most recent counter played for any 4 surrounding it
@@ -101,3 +88,43 @@ class Board:
              if [self.data[self.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
                 self.running=False
         return self.running
+
+    def choose_column(self,user_colors,usernames):
+        """
+        Uses the current board state to pick the best column 
+        when computer is playing
+        """
+        #First check if human is about to win
+        for col in range(7):
+            if self.highest_counter[col] > 0:
+                self.highest_counter[col] -=1 
+                self.data[self.highest_counter[col]][col] = user_colors[usernames[0]]
+                win_prevented = not self.check_winner(col,user_colors[usernames[0]])
+                self.running = True
+                #undo update of data
+                self.data[self.highest_counter[col]][col] = '.'
+                self.highest_counter[col] +=1
+                if win_prevented:
+                    best_column = col
+                    break
+        if not win_prevented:
+            best_column = random.randint(0, 6)
+        return best_column
+
+   
+
+    def update_data_computer(self,color,user_colors,usernames):
+        """
+        Updates the board data based on user input
+        """
+        counter_added=False
+        column = self.choose_column(user_colors,usernames)
+        if self.highest_counter[column] > 0:
+            self.highest_counter[column] -=1 
+            self.data[self.highest_counter[column]][column] = color
+            counter_added=True
+        return column, counter_added        
+    
+    
+
+ 

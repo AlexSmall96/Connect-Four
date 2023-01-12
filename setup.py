@@ -117,7 +117,7 @@ def run_game(no_players,user_colors,usernames):
             print('                     Computer is thinking...')
             time.sleep(1.5)
             print ("\033[A                             \033[A")
-            column,counter_added=board.update_data_computer(color)
+            column,counter_added=board.update_data_computer(color,user_colors,usernames)
         else:
             column,counter_added=board.update_data_human(color,user)
         if counter_added:

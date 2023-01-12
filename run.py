@@ -13,7 +13,7 @@ while play_again:
     play_again=setup.run_game(no_players,user_colors,usernames)
 
 print("""
-Thank you for playing connect 4. 
+Thank you for playing Connect Four. 
 This programme was created by Alex Small. 
 Please visit my GitHub profile https://github.com/AlexSmall96.
 """)
