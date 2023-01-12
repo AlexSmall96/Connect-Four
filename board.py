@@ -107,9 +107,27 @@ class Board:
                 if win_prevented:
                     best_column = col
                     break
-        if not win_prevented:
-            best_column = random.randint(0, 6)
+                else:
+                    if self.highest_counter[col] > 0:
+                        self.highest_counter[col] -=1 
+                        self.data[self.highest_counter[col]][col] = user_colors[usernames[1]]
+                        pot_win_detected = not self.check_winner(col,user_colors[usernames[1]])
+                        self.running = True
+                        #undo update of data
+                        self.data[self.highest_counter[col]][col] = '.'
+                        self.highest_counter[col] +=1
+                        if pot_win_detected:
+                            best_column = col
+                            break
+                        else:
+                            best_column = random.randint(0,6)
         return best_column
+                
+
+
+
+
+    
 
    
 
