@@ -58,22 +58,43 @@ class Board:
         """
         Checks the most recent counter played for any 4 surrounding it
         """
-        #horizontal left to right
-        if column <=3:
-            if [self.data[self.highest_counter[column]][column+i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        #horizontal right to left
-        if column >= 3:
-            if [self.data[self.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        #vertical up to down
-        if self.highest_counter[column]<=2:
-            if [self.data[self.highest_counter[column]+i][column] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        #vertical down to up
-        if self.highest_counter[column]>=2:
-            if [self.data[self.highest_counter[column]-i][column] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
+        #horizontal left side of board
+        if self.running:
+            if column <= 3:
+                if [self.data[self.highest_counter[column]][column+i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+                elif column >= 1:
+                    if [self.data[self.highest_counter[column]][column-1+i] for i in range(4)] == [color for i in range(4)]:
+                        self.running = False
+                    elif column >= 2:
+                        if [self.data[self.highest_counter[column]][column-2+i] for i in range(4)] == [color for i in range(4)]:
+                            self.running = False
+                        elif column == 3:
+                            if [self.data[self.highest_counter[column]][column-3+i] for i in range(4)] == [color for i in range(4)]:
+                                self.running = False
+     
+        #horizontal right side of board
+        if self.running:
+            if column >= 3:
+                if [self.data[self.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
+                    self.running=False
+                elif column <= 5:
+                    if [self.data[self.highest_counter[column]][column + 1 - i] for i in range(4)]==[color for i in range(4)]:
+                        self.running=False
+                    elif column <= 4:
+                        if [self.data[self.highest_counter[column]][column + 2 - i] for i in range(4)]==[color for i in range(4)]:
+                            self.running=False
+                        elif column == 3:
+                            if [self.data[self.highest_counter[column]][column + 3 - i] for i in range(4)]==[color for i in range(4)]:
+                                self.running=False
+ 
+ 
+       #vertical
+        if self.running:
+            if self.highest_counter[column] <= 2:
+                if [self.data[self.highest_counter[column]+i][column] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+
         #diagonal
         if column <=3 and self.highest_counter[column]<=2:
             if [self.data[self.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
