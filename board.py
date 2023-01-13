@@ -1,206 +1,218 @@
 import os
-import time
 import random
 
-counters={'red':'\033[1;31m' + '●' + '\033[0;0m','yellow':'\033[1;33m' + '●' + '\033[0;0m'}
+counters = {}
+counters['red'] = '\033[1;31m' + '●' + '\033[0;0m'
+counters['yellow'] = '\033[1;33m' + '●' + '\033[0;0m'
+
 
 class Board:
-    def __init__(self,data):
+    def __init__(self, data):
         """
         Creates an instance of Board
         """
-        self.data=data
-        self.highest_counter={i:6 for i in range(7)}
-        self.running=True
-    def display(self):
-            """
-            Prints the game board in its current state to the terminal
-            """
-            os.system('cls||clear')
-            print('\n')
-            print('\n')
-            print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-            for row in self.data:
-                display_row=''
-                for entry in row:
-                    if entry == '.':
-                        display_row +=' '+ entry + ' '
-                    else:
-                        display_row +=' '+ counters[entry] +' '   
-                display_row='                     ▮ ' + display_row + ' ▮'
-                print(display_row)
-            print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
-            print('                        0  1  2  3  4  5  6  ') 
-            print('\n')
+        self.data = data
+        self.highest_counter = {i: 6 for i in range(7)}
+        self.running = True
 
-    def update_data_human(self,color,user):
+    def display(self):
+        """
+        Prints the game board in its current state to the terminal
+        """
+        os.system('cls||clear')
+        print('\n')
+        print('\n')
+        print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
+        for row in self.data:
+            display_row = ''
+            for entry in row:
+                if entry == '.':
+                    display_row += ' ' + entry + ' '
+                else:
+                    display_row += ' ' + counters[entry] + ' '
+            display_row = '                     ▮ ' + display_row + ' ▮'
+            print(display_row)
+        print('                      ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬')
+        print('                        0  1  2  3  4  5  6  ')
+        print('\n')
+
+    def update_data_human(self, color, user):
         """
         Updates the board data based on user input
         """
-        counter_added=False
-        column = input('                     '+user + ' ' + counters[color] + ' Choose a Column (0-6) ')
+        counter_added = False
+        column = input(f"{user} {counters[color]} Choose a Column (0-6) ")
         if column.isnumeric():
-            column=int(column)
-            if column >=0 and column <=6:
+            column = int(column)
+            if column >= 0 and column <= 6:
                 if self.highest_counter[column] > 0:
-                    self.highest_counter[column] -=1 
+                    self.highest_counter[column] -= 1
                     self.data[self.highest_counter[column]][column] = color
-                    counter_added=True
+                    counter_added = True
                 else:
-                    print('                     Column ' + str(column) +' Full. Choose another column. ')
+                    print(f"Column {str(column)} Full. Choose Another.")
             else:
-                print('                    Please choose a whole number between 0 and 6.')
+                print('Please choose a whole number between 0 and 6.')
         else:
-            print('                    Please choose a whole number between 0 and 6.')
+            print('Please choose a whole number between 0 and 6.')
         return column, counter_added
 
-    def check_winner(self,column,color):
+    def check_winner(self, col, color):
         """
         Checks the most recent counter played for any 4 surrounding it
         """
-        #horizontal left side of board
+        row = self.highest_counter[col]
+        color_streak = [color for i in range(4)]
+        # horizontal left side of board
         if self.running:
-            if column <= 3:
-                if [self.data[self.highest_counter[column]][column+i] for i in range(4)] == [color for i in range(4)]:
+            if col <= 3:
+                rnge = [self.data[row][col+i] for i in range(4)]
+                if rnge == color_streak:
                     self.running = False
-                elif column >= 1:
-                    if [self.data[self.highest_counter[column]][column-1+i] for i in range(4)] == [color for i in range(4)]:
+                elif col >= 1:
+                    rnge = [self.data[row][col-1+i] for i in range(4)]
+                    if rnge == color_streak:
                         self.running = False
-                    elif column >= 2:
-                        if [self.data[self.highest_counter[column]][column-2+i] for i in range(4)] == [color for i in range(4)]:
+                    elif col >= 2:
+                        rnge = [self.data[row][col-2+i] for i in range(4)]
+                        if rnge == color_streak:
                             self.running = False
-                        elif column == 3:
-                            if [self.data[self.highest_counter[column]][column-3+i] for i in range(4)] == [color for i in range(4)]:
+                        elif col == 3:
+                            rnge = [self.data[row][col-3+i] for i in range(4)]
+                            if rnge == color_streak:
                                 self.running = False
+   
+        # horizontal right side of board
+        if self.running:
+            if col >= 3:
+                rnge = [self.data[row][col-i] for i in range(4)]
+                if rnge == color_streak:
+                    self.running = False
+                elif col <= 5:
+                    rnge = [self.data[row][col+1-i] for i in range(4)]
+                    if rnge == color_streak:
+                        self.running = False
+                    elif col <= 4:
+                        rnge = [self.data[row][col+2-i] for i in range(4)]
+                        if rnge == color_streak:
+                            self.running = False
+                        elif col == 3:
+                            rnge = [self.data[row][col+3-i] for i in range(4)]
+                            if rnge == color_streak:
+                                self.running = False
+
+        # vertical
+        if self.running:
+            if self.highest_counter[col] <= 2:
+                rnge = [self.data[row+i][col] for i in range(4)]
+                if rnge == color_streak:
+                    self.running = False
+
+        # diagonal upwards left to right
+        # last counter in 1st position
+        if self.running:
+            if col <= 3 and row >= 3:
+                rnge = [self.data[row-i][col+i] for i in range(4)]
+                if rnge == color_streak:
+                    self.running = False
      
-        #horizontal right side of board
+        # last counter in 2nd position
         if self.running:
-            if column >= 3:
-                if [self.data[self.highest_counter[column]][column-i] for i in range(4)]==[color for i in range(4)]:
-                    self.running=False
-                elif column <= 5:
-                    if [self.data[self.highest_counter[column]][column + 1 - i] for i in range(4)]==[color for i in range(4)]:
-                        self.running=False
-                    elif column <= 4:
-                        if [self.data[self.highest_counter[column]][column + 2 - i] for i in range(4)]==[color for i in range(4)]:
-                            self.running=False
-                        elif column == 3:
-                            if [self.data[self.highest_counter[column]][column + 3 - i] for i in range(4)]==[color for i in range(4)]:
-                                self.running=False
- 
- 
-       #vertical
+            if col >= 1 and col <= 4 and row >= 2 and row <= 4:
+                rnge = [self.data[row+1-i][col-1+i] for i in range(4)]
+                if rnge == color_streak:
+                    self.running = False
+     
+        # last counter in 3rd position
         if self.running:
-            if self.highest_counter[column] <= 2:
-                if [self.data[self.highest_counter[column]+i][column] for i in range(4)] == [color for i in range(4)]:
+            if col >= 2 and col <= 5 and row >= 1 and row <= 3:
+                rnge = [self.data[row+2-i][col-2+i] for i in range(4)]
+                if rnge == color_streak:
                     self.running = False
 
-        #diagonal upwards left to right
-        #last counter in 1st position
+        # last counter in 4th position
         if self.running:
-            if column <= 3 and self.highest_counter[column] >=3:
-                if [self.data[self.highest_counter[column]-i][column+i] for i in range(4)] == [color for i in range(4)]:
-                    self.running = False
-        
-        #last counter in 2nd position
+            if col >= 3 and row <= 2:
+                rnge = [self.data[row+3-i][col-3+i] for i in range(4)]
+                if rnge == color_streak:
+                    self.running = False            
+
+        # diagonal downards left to right
+        # last counter in 4th position
         if self.running:
-            if column >=1 and column <=4 and self.highest_counter[column] >=2 and self.highest_counter[column] <=4 :            
-                if [self.data[self.highest_counter[column]+1-i][column-1+i] for i in range(4)] == [color for i in range(4)]:
-                    self.running = False
-        
-        #last counter in 3rd position
-        if self.running:
-            if column >=2 and column <=5 and self.highest_counter[column] >=1 and self.highest_counter[column] <=3:            
-                if [self.data[self.highest_counter[column]+2-i][column-2+i] for i in range(4)] == [color for i in range(4)]:
+            if col >= 3 and row >= 3:
+                rnge = [self.data[row-i][col-i] for i in range(4)]
+                if rnge == color_streak:
                     self.running = False
 
-        #last counter in 4th position
+        # last counter in 3rd position
         if self.running:
-            if column >=3 and self.highest_counter[column] <=2:            
-                if [self.data[self.highest_counter[column]+3-i][column-3+i] for i in range(4)] == [color for i in range(4)]:
-                    self.running = False                                      
-
-        #diagonal downards left to right
-        #last counter in 4th position
-        if self.running:
-            if column >=3 and self.highest_counter[column] >=3:
-                if [self.data[self.highest_counter[column]-i][column-i] for i in range(4)] == [color for i in range(4)]:
+            if col >= 2 and col <= 5 and row >= 2 and row <= 4:
+                rnge = [self.data[row+1-i][col+1-i] for i in range(4)]  
+                if rnge == color_streak:
                     self.running = False
-
-        #last counter in 3rd position
+    
+        # last counter in 2nd position
         if self.running:
-            if column >=2 and column <=5 and self.highest_counter[column] >=2 and self.highest_counter[column] <=4 :            
-                if [self.data[self.highest_counter[column]+1-i][column+1-i] for i in range(4)] == [color for i in range(4)]:
+            if col >= 1 and col <= 4 and row >= 1 and row <= 3:
+                rnge = [self.data[row+2-i][col+2-i] for i in range(4)]
+                if rnge == color_streak:
                     self.running = False
-        
-        #last counter in 2nd position
+       
+        # last counter in 1st position
         if self.running:
-            if column >=1 and column <=4 and self.highest_counter[column] >=1 and self.highest_counter[column] <=3:            
-                if [self.data[self.highest_counter[column]+2-i][column+2-i] for i in range(4)] == [color for i in range(4)]:
-                    self.running = False
-        
-        #last counter in 1st position
-        if self.running:
-            if column <=3 and self.highest_counter[column] <=2:          
-                if [self.data[self.highest_counter[column]+3-i][column+3-i] for i in range(4)] == [color for i in range(4)]:
+            if col <= 3 and row <= 2:
+                rnge = [self.data[row+3-i][col+3-i] for i in range(4)]        
+                if rnge == color_streak:
                     self.running = False
 
         return self.running
 
-    def choose_column(self,user_colors,usernames):
+    def choose_column(self, user_colors, usernames):
         """
         Uses the current board state to pick the best column 
         when computer is playing
         """
-        #First check if human is about to win
+        # First check if computer is about to win
         for col in range(7):
+            color = user_colors[usernames[1]]
             if self.highest_counter[col] > 0:
-                self.highest_counter[col] -=1 
-                self.data[self.highest_counter[col]][col] = user_colors[usernames[0]]
-                win_prevented = not self.check_winner(col,user_colors[usernames[0]])
+                self.highest_counter[col] -= 1
+                self.data[self.highest_counter[col]][col] = color
+                pot_win_detected = not self.check_winner(col, color)
                 self.running = True
-                #undo update of data
+                # undo update of data
                 self.data[self.highest_counter[col]][col] = '.'
-                self.highest_counter[col] +=1
-                if win_prevented:
+                self.highest_counter[col] += 1
+                if pot_win_detected:
                     best_column = col
                     break
                 else:
+                    # Check if human is about to win
+                    color = user_colors[usernames[0]]
                     if self.highest_counter[col] > 0:
-                        self.highest_counter[col] -=1 
-                        self.data[self.highest_counter[col]][col] = user_colors[usernames[1]]
-                        pot_win_detected = not self.check_winner(col,user_colors[usernames[1]])
+                        self.highest_counter[col] -= 1
+                        self.data[self.highest_counter[col]][col] = color
+                        win_prevented = not self.check_winner(col, color)
                         self.running = True
-                        #undo update of data
+                        # undo update of data
                         self.data[self.highest_counter[col]][col] = '.'
-                        self.highest_counter[col] +=1
-                        if pot_win_detected:
+                        self.highest_counter[col] += 1
+                        if win_prevented:
                             best_column = col
                             break
                         else:
-                            best_column = random.randint(0,6)
+                            best_column = random.randint(0, 6)
         return best_column
-                
-
-
-
-
-    
-
-   
-
-    def update_data_computer(self,color,user_colors,usernames):
+            
+    def update_data_computer(self, color, user_colors, usernames):
         """
         Updates the board data based on user input
         """
-        counter_added=False
-        column = self.choose_column(user_colors,usernames)
+        counter_added = False
+        column = self.choose_column(user_colors, usernames)
         if self.highest_counter[column] > 0:
-            self.highest_counter[column] -=1 
+            self.highest_counter[column] -= 1
             self.data[self.highest_counter[column]][column] = color
-            counter_added=True
-        return column, counter_added        
-    
-    
-
- 
+            counter_added = True
+        return column, counter_added

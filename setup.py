@@ -5,6 +5,9 @@ from board import counters
 
 
 def print_title():
+    """
+    Prints the game title to the terminal
+    """
     os.system('cls||clear')
     print('\n') 
     print('      ▄▀▀▀▀'+'\033[1;31m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    ██   █    ██   █   █▀▀▀▀▀    ▄▀▀▀▀   ▀▀▀█▀▀▀')                 
@@ -18,12 +21,19 @@ def print_title():
     print('                  █     '+'\033[1;33m'+'    ▀▄▄▄▀ '+'\033[0;0m'+'    ▀▄▄▄▀    █    ▀▄   ') 
     print('\n')
 
+
 def print_welcome():
+    """
+    Prints the welcome message to the terminal
+    """
     print('Welcome to Connect Four!')
     print('\n')   
 
 
 def print_instructions():
+    """ 
+    Prints the instructions to the terminal
+    """
     print("""
 
 Instructions:
@@ -46,7 +56,13 @@ Good Luck!
 
 """)
 
+
 def set_no_players():
+    """
+    Allows the user to select number of players
+    1 : human vs computer
+    2: human vs human
+    """
     correct_input = False
     while not correct_input:
         no_players = input("""
@@ -56,13 +72,15 @@ Enter 1 to play human vs computer or 2 to play human vs human
         if no_players.isnumeric():
             if int(no_players) == 1 or int(no_players) == 2:
                 return int(no_players)
-                correct_input=True
+                correct_input = True
         else:
             print('Please enter either 1 or 2')
 
-    
 
 def set_usernames(no_players):
+    """
+    Allows all users to select a username
+    """
     if no_players == 1:
         player_1 = input('Player 1 - Please enter your username ')
         return [player_1]
@@ -72,12 +90,16 @@ def set_usernames(no_players):
             player_1 = input('Player 1 - Please enter your username ')
             player_2 = input('Player 2 - Please enter your username ')
             if player_1.lower() != player_2.lower():
-                correct_input=True
+                correct_input = True
             else:
                 print('Usernames must be different')
         return [player_1, player_2]
 
+
 def select_colors(usernames):
+    """
+    Allows player 1 to select their counter color
+    """
     if len(usernames) == 1:
         if usernames[0].lower() != 'computer':
             usernames.append('Computer')
@@ -85,8 +107,13 @@ def select_colors(usernames):
             usernames.append('Computer 2')
     user_colors = {}
     correct_input = False
-    while not correct_input: 
-        choice = input(f"{usernames[0]} Select a color : Red {counters['red']} or Yellow {counters['yellow']} ").lower()
+    while not correct_input:
+        red = counters['red']
+        yellow = counters['yellow']
+        user = usernames[0]
+        message = f"{user} Select a color : Red {red} or Yellow {yellow} "
+        choice = input(message)
+        choice = choice.lower()
         if choice == 'red':
             user_colors[usernames[0]] = 'red'
             user_colors[usernames[1]] = 'yellow'
@@ -97,42 +124,44 @@ def select_colors(usernames):
             correct_input = True
         else:
             print('Please Select from Available Colors')
-    return user_colors,usernames
+    return user_colors, usernames
             
-        
-            
-   
 
-def run_game(no_players,user_colors,usernames):
-    data=[['.' for i in range(7)] for j in range(6)]
-    board=Board(data)
+def run_game(no_players, user_colors, usernames):
+    """
+    Main function to run game sequence
+    """
+    data = [['.' for i in range(7)] for j in range(6)]
+    board = Board(data)
     board.display()
-    user=usernames[0]
-    color=user_colors[user]
-    user_cycle={usernames[0]:usernames[1],usernames[1]:usernames[0]}
-    count=0
+    user = usernames[0]
+    color = user_colors[user]
+    user_cycle = {usernames[0]: usernames[1], usernames[1]: usernames[0]}
+    count = 0
     computer_won = False
     while board.running and count < 42:
         if no_players == 1 and count % 2 != 0:
-            print('                     Computer is thinking...')
+            print('Computer is thinking...')
             time.sleep(1.5)
-            print ("\033[A                             \033[A")
-            column,counter_added=board.update_data_computer(color,user_colors,usernames)
+            print("\033[A                             \033[A")
+            output = board.update_data_computer(color, user_colors, usernames)
+            column = output[0] 
+            counter_added = output[1]
         else:
-            column,counter_added=board.update_data_human(color,user)
+            column, counter_added = board.update_data_human(color, user)
         if counter_added:
             board.display()
-            board.running=board.check_winner(column,color)
+            board.running = board.check_winner(column, color)
             if board.running:
                 user = user_cycle[user]
-                color= user_colors[user]
+                color = user_colors[user]
                 count += 1
             else:
                 if no_players == 1 and count % 2 != 0:
                     computer_won = True
     if computer_won:
-        print(f"                     Computer Won ... Better luck next time {usernames[0]}.")
+        print(f"Computer Won ... Better luck next time {usernames[0]}.")
     else:
-        print(f"                     Well Done {user}, you won!" )   
-    play_again=input('                     Would you like to play again? ').lower() == 'y'
+        print(f"Well Done {user}, you won!")   
+    play_again = input('Would you like to play again? ').lower() == 'y'
     return play_again
