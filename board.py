@@ -95,19 +95,56 @@ class Board:
                 if [self.data[self.highest_counter[column]+i][column] for i in range(4)] == [color for i in range(4)]:
                     self.running = False
 
-        #diagonal
-        if column <=3 and self.highest_counter[column]<=2:
-            if [self.data[self.highest_counter[column]+i][column+i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        if column <=3 and self.highest_counter[column]>=2:
-            if [self.data[self.highest_counter[column]-i][column+i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        if column >=3 and self.highest_counter[column]<=2:
-            if [self.data[self.highest_counter[column]+i][column-i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
-        if column >=3 and self.highest_counter[column]>=2:
-             if [self.data[self.highest_counter[column]-i][column-i] for i in range(4)]==[color for i in range(4)]:
-                self.running=False
+        #diagonal upwards left to right
+        #last counter in 1st position
+        if self.running:
+            if column <= 3 and self.highest_counter[column] >=3:
+                if [self.data[self.highest_counter[column]-i][column+i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+        
+        #last counter in 2nd position
+        if self.running:
+            if column >=1 and column <=4 and self.highest_counter[column] >=2 and self.highest_counter[column] <=4 :            
+                if [self.data[self.highest_counter[column]+1-i][column-1+i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+        
+        #last counter in 3rd position
+        if self.running:
+            if column >=2 and column <=5 and self.highest_counter[column] >=1 and self.highest_counter[column] <=3:            
+                if [self.data[self.highest_counter[column]+2-i][column-2+i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+
+        #last counter in 4th position
+        if self.running:
+            if column >=3 and self.highest_counter[column] <=2:            
+                if [self.data[self.highest_counter[column]+3-i][column-3+i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False                                      
+
+        #diagonal downards left to right
+        #last counter in 4th position
+        if self.running:
+            if column >=3 and self.highest_counter[column] >=3:
+                if [self.data[self.highest_counter[column]-i][column-i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+
+        #last counter in 3rd position
+        if self.running:
+            if column >=2 and column <=5 and self.highest_counter[column] >=2 and self.highest_counter[column] <=4 :            
+                if [self.data[self.highest_counter[column]+1-i][column+1-i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+        
+        #last counter in 2nd position
+        if self.running:
+            if column >=1 and column <=4 and self.highest_counter[column] >=1 and self.highest_counter[column] <=3:            
+                if [self.data[self.highest_counter[column]+2-i][column+2-i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+        
+        #last counter in 1st position
+        if self.running:
+            if column <=3 and self.highest_counter[column] <=2:          
+                if [self.data[self.highest_counter[column]+3-i][column+3-i] for i in range(4)] == [color for i in range(4)]:
+                    self.running = False
+
         return self.running
 
     def choose_column(self,user_colors,usernames):
