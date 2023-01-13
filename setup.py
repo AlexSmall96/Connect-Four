@@ -28,7 +28,7 @@ def print_title():
     ]
     print('\n')
     for i in range(4):
-        print('    'Connect[2*i]+'    '+Connect[2*i+1])
+        print('    '+Connect[2*i]+'    '+Connect[2*i+1])
     print('\n')
     for i in range(4):
         print('                   '+Four[i])
