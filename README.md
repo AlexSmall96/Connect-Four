@@ -38,7 +38,7 @@ Feature                    |    Image                   |         Value to User
 ## Future Features
 
 ## Testing
-Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Pair-Matching-Game/blob/main/TESTING.md).
+Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/TESTING.md).
 
 ## Frameworks, Libraries & Programs Used
 
