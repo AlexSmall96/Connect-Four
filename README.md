@@ -1,31 +1,85 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Connect Four
 
-Welcome AlexSmall96,
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Live Site 
+[https://alexsmall96.github.io/Pairs/](https://alexsmall96.github.io/Pairs/)
 
-## Reminders
+![](assets/documentation/images/am-i-responsive.png)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Repository 
+[https://alexsmall96.github.io/Pairs/](https://github.com/AlexSmall96/Pairs)
 
-## Creating the Heroku app
+## Author 
+Alex Small
+## Table of Contents
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+# UX
+## Target Audience
 
-1. `heroku/python`
-2. `heroku/nodejs`
+ 
+## Project Goals
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## User Stories
+### Site User
 
-Connect your GitHub repository and deploy as normal.
+### Website Owner
 
-## Constraints
 
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
+## Features
 
------
-Happy coding!
+The features of the site are given below, along with an image and its value to the user.
+
+Feature                    |    Image                   |         Value to User
+:-------------------------:|:-------------------------: | :-------------------------: 
+                           |                            |          
+
+
+## Future Features
+
+## Testing
+Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Pair-Matching-Game/blob/main/TESTING.md).
+
+## Frameworks, Libraries & Programs Used
+
+- gitpod
+- github
+- Python Libraries : os, time, random
+
+
+# Deployment
+### Deploying the Site to Heroku
+
+### Forking the Repository on GitHub
+- On GitHub.com, navigate to the main page of the [Pairs](https://github.com/AlexSmall96/Pairs) repository.
+- In the top-right corner of the page, click Fork.
+- Select an owner for the forked repository.
+- By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further.
+- Optionally, add a description of your fork.
+- Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
+- Click Create fork.
+### Cloning the Repository on GitHub
+- On GitHub.com, navigate to the main page of the [Pairs](https://github.com/AlexSmall96/Pairs) repository.
+- Above the list of files, click Code.
+- Copy the URL for the repository.
+- Open Terminal.
+- Change the current working directory to the location where you want the cloned directory.
+- Type git clone, and then paste the URL you copied earlier.
+- Press Enter to create your local clone.
+
+# Credits
+## Content
+The content of the site is all original thought, however the game itself is based on the classic game [Connect Four](https://en.wikipedia.org/wiki/Connect_Four)
+## Media
+
+## Code
+The resources used for this project were the CI Python Essentials Module, along with some external resources:
+
+- Description [link text](link address).
+
+
+
+- All external resources are commented in the code at the relevant places.
+
+## Acknowledgements 
+I would like to thank my mentor Harry Dhillon for his encouraging support and detailed feedback throughout this project.
