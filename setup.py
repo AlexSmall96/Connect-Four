@@ -86,6 +86,8 @@ Enter 1 to play human vs computer or 2 to play human vs human
             if int(no_players) == 1 or int(no_players) == 2:
                 return int(no_players)
                 correct_input = True
+            else:
+                print('Please enter either 1 or 2')
         else:
             print('Please enter either 1 or 2')
 
