@@ -10,7 +10,7 @@ counters['yellow'] = '\033[1;33m' + '●' + '\033[0;0m'
 class Board:
     """
     Contains data to represent the game,
-    along with methods to display the game board 
+    along with methods to display the game board
     and update it with players moves
     """
     def __init__(self, data):
@@ -134,7 +134,7 @@ class Board:
                 rnge = [self.data[row-i][col+i] for i in range(4)]
                 if rnge == color_streak:
                     self.running = False
-  
+
         # Last counter in 2nd position
         if self.running:
             if col >= 1 and col <= 4 and row >= 2 and row <= 4:
@@ -154,7 +154,7 @@ class Board:
             if col >= 3 and row <= 2:
                 rnge = [self.data[row+3-i][col-3+i] for i in range(4)]
                 if rnge == color_streak:
-                    self.running = False            
+                    self.running = False
 
         # Diagonal downards left to right
         # Last counter in 4th position
@@ -167,7 +167,7 @@ class Board:
         # Last counter in 3rd position
         if self.running:
             if col >= 2 and col <= 5 and row >= 2 and row <= 4:
-                rnge = [self.data[row+1-i][col+1-i] for i in range(4)]  
+                rnge = [self.data[row+1-i][col+1-i] for i in range(4)]
                 if rnge == color_streak:
                     self.running = False
 
@@ -177,11 +177,11 @@ class Board:
                 rnge = [self.data[row+2-i][col+2-i] for i in range(4)]
                 if rnge == color_streak:
                     self.running = False
-      
+   
         # Last counter in 1st position
         if self.running:
             if col <= 3 and row <= 2:
-                rnge = [self.data[row+3-i][col+3-i] for i in range(4)]        
+                rnge = [self.data[row+3-i][col+3-i] for i in range(4)]
                 if rnge == color_streak:
                     self.running = False
 
@@ -229,7 +229,7 @@ class Board:
                             # make column choice random
                             best_column = random.randint(0, 6)
         return best_column
-          
+       
     def update_data_computer(self, color, user_colors, usernames):
         """
         Updates the board data based on user input

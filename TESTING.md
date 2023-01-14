@@ -120,6 +120,7 @@ Throughout this section, tests have been divided into sections based on each sta
 |4.5  |Logic | When the computer wins, a message containing the players username appears stating computer has won| Computer wins and message appears as expected|Pass|
 |4.6  |Logic | In single player mode, computer detects when player is about to win and if possible, blocks their streak with a counter| Player has a streak of 3 and computer blocks as expected|Pass|
 |4.7  |Logic | In single player mode, computer detects when itself is about to win and if possible, adds a counter to its own streak| Computer has a streak of 3 and next move from computer is winning move as expected|Pass|
+
 ### Screenshots where applicable for Win Detection
 
 - For tests 4.1, 4.2 and 4.3, a sample of scenarios have been given as screenshots. Examining the logic in board.check_winner function, shows that the below screenshots can be extrapolated as evidence of all scenarios passing the test. The Function is also independent of wether computer or human played the streak, therefore the given screenshots also apply to single player mode.
@@ -168,11 +169,24 @@ Throughout this section, tests have been divided into sections based on each sta
 5.1                     | 5.4                         | 
 :-------------------------:|:-------------------------: 
 ![](documentation/images/5.1.png)| ![](documentation/images/5.3.png)  
-### Issues Found
- 
+
  
 ## User Stories Testing
 
  
 ## Validation Testing
  
+ All three .py files have been validated through the [Code Institute Python Validator](https://pep8ci.herokuapp.com/). run.py and setup.py passed with no errors or warnings. board.py had two warnings regarding lines with whitespace, however these keep reappearing on deletion. As they don't affect any running of the code I chose to ignore these warnings. Screenshots of the results of the validator for each file are given below.
+
+ - run.py
+ 
+  ![](documentation/images/run.png)
+
+  - setup.py
+
+ ![](documentation/images/setup.png)
+
+- board.py
+
+ ![](documentation/images/board.png)
+

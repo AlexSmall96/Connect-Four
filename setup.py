@@ -84,8 +84,8 @@ def set_no_players():
     while not correct_input:
         no_players = input("""
 Select Number of Players:
-Enter 1 to play human vs computer or 2 to play human vs human 
-        """) 
+Enter 1 to play human vs computer or 2 to play human vs human
+        """)
         # Validate input
         if no_players.isnumeric():
             if int(no_players) == 1 or int(no_players) == 2:
@@ -218,6 +218,6 @@ def run_game(no_players, user_colors, usernames):
     else:
         # Print well done message if human wins
         print(f"Well Done {user}, you won!")
-    # Give user the option to play again   
+    # Give user the option to play again
     play_again = input('Would you like to play again? ').lower() == 'y'
     return play_again
