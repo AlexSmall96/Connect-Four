@@ -10,7 +10,7 @@ Throughout this section, tests have been divided into sections based on each sta
 |------|------------------|-------------------------------------|------------------------------------------------------------|-----------|
 |1.1   |Loading Information | Home screen with title and welcome message appears upon pressing run program button | Full screen loads as expected |Pass|
 |1.2   |Loading Information| Pressing Enter loads Instructions, with a further prompt to press enter to set up game at bottom of screen | Instructions loads as expected, prompt message appears after instructions |Pass|
-|1.3   |Loading Information| Pressing Enter after instructions are given results in number of players selection stage | Upon pressing enter a message stating asking user to select number of players appears as expected  |Pass|
+|1.3   |Loading Information| Pressing Enter after instructions are given results in number of players selection stage | Upon pressing enter a message asking user to select number of players appears as expected  |Pass|
 |1.4   |Input Validation| Entering a non numerical symbol at number of players selection stage results in warning message and user is asked to retry| 'd' is inputted and a message stating input must be either 1 or 2 appears, user is promted to reselct number of players |Pass|
 |1.5   |Input Validation| Entering a number other than 1 or 2 at number of players selection stage results in warning message and user is asked to retry| '3' is inputted and a message stating input must be either 1 or 2 appears, user is promted to reselct number of players |Pass|
 |1.6   |Input Validation| Entering 1 results in a message to allow the user to choose username | '1' is inputted and a username input message appears as expected |Pass|
@@ -69,6 +69,7 @@ Throughout this section, tests have been divided into sections based on each sta
 |2.7   |Logic | Once computer is thinking message dissapears, computers counter appears in a random column (computer column choice is non random in certain cases - see [Win Detection](#win-detection)) | Computer message dissapears and the correspoinding counter color is added to the game area |Pass|
 |2.8   |Logic | If computer chooses a column that already has a counter in it, the computers counter is added to the next row up | Computer chooses a column with counter on bottom row and counter is added to row directly above as expected |Pass|
 |2.9   |Logic | If user chooses a column that is full, a message stating column is full appears and user is prompted to reselect a column| Full column is chosen and feedback is given to user as expected |Pass|
+|2.10   |Logic | Computer never chooses full column| Computer's choice is always a column with an available space as expected |Pass|
 
 ### Screenshots where applicable for Game Play - Single Player Mode
 
