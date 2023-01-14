@@ -115,9 +115,10 @@ Throughout this section, tests have been divided into sections based on each sta
 |4.1   |Logic | When a player or computer has a vertical streak of 4 of their counters in any column, the game is ended| Vertical streak is reached in any column and game ends. A sample of columns are given as screenshots |Pass|
 |4.2  |Logic | When a player or computer has a horizontal streak of 4 of their counters in any row, the game is ended| Horizontal streak is reached in any row and game ends. A sample of rows are given as screenshots |Pass|
 |4.3  |Logic | When a player or computer has a diagonal streak of 4 of their counters the game is ended| Diagonal streak is reached  and game ends. A sample of scenarios are given as screenshots |Pass|
-|second last   |Logic | When a player wins the game, a well done message appears containing their username | User wins and message appears as expected |Pass|
-|last  |Logic | When the computer wins, a message containing the players username appears stating computer has won| Computer wins and message appears as expected|Pass|
-
+|4.4   |Logic | When a player wins the game, a well done message appears containing their username | User wins and message appears as expected (See 4.1 - 4.3 screenshots) |Pass|
+|4.5  |Logic | When the computer wins, a message containing the players username appears stating computer has won| Computer wins and message appears as expected|Pass|
+|4.6  |Logic | In single player mode, computer detects when player is about to win and if possible, blocks their streak with a counter| Player has a streak of 3 and computer blocks as expected|Pass|
+|4.7  |Logic | In single player mode, computer detects when itself is about to win and if possible, adds a counter to its own streak| Computer has a streak of 3 and next move from computer is winning move as expected|Pass|
 ### Screenshots where applicable for Win Detection
 
 - For tests 4.1, 4.2 and 4.3, a sample of scenarios have been given as screenshots. Examining the logic in board.check_winner function, shows that the below screenshots can be extrapolated as evidence of all scenarios passing the test. The Function is also independent of wether computer or human played the streak, therefore the given screenshots also apply to single player mode.
@@ -147,13 +148,25 @@ Throughout this section, tests have been divided into sections based on each sta
 :-------------------------:|:-------------------------:|:-------------------------:|:-------------------------: 
 ![](documentation/images/4.3e.png)| ![](documentation/images/4.3f.png)| ![](documentation/images/4.3g.png) |![](documentation/images/4.3h.png) 
 
-
+4.5, 4.6, 4.7 | 
+:-------------------------:|
+![](documentation/images/4.5.png)|  
 
 
 ### Replay and Exiting Game
 
-### Screenshots where applicable for Replay and Exiting Game
+| Test | Category         | Expected Result                     | Actual Result                                              | Pass/Fail |
+|------|------------------|-------------------------------------|------------------------------------------------------------|-----------|
+|5.1   |Loading Information | When a game is ended, entering 'y' takes the user back to the instructions | 'y' is entered and instructions screen appears as expected|Pass|
+|5.2   |Loading Information | Usernames and colours are reselected when game is replayed| Pressing enter on second instructions screen loading prompts username and color selection as expected|Pass|
+|5.3   |Loading Information | Game screen loads as normal when game is replayed| Game screen loads as expected|Pass|
+|5.4   |Loading Information | Pressing enter without inputting 'y' at end of game exits game and goodbye message appears| Enter is pressed at end of game and message appears as expected|Pass|
 
+
+### Screenshots where applicable for Replay and Exiting Game
+5.1                     | 5.4                         | 
+:-------------------------:|:-------------------------: 
+![](documentation/images/5.1.png)| ![](documentation/images/5.3.png)  
 ### Issues Found
  
  

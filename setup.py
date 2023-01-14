@@ -60,10 +60,10 @@ of their colour next to eachother.
 A win can be a vertical, horizontal or diagonal streak of counters.
 
 To play the game, each turn select the columnn you want to add a
-counter to, and add the corresponding column number in the input section. 
+counter to, and add the corresponding column number in the input section.
 This will automatically drop a counter to the highest space in the column.
 
-At the end of the game, press Y to play again, and any other key to exit.
+At the end of the game, press Y and Enter to play again, or Enter to exit.
 
 Good Luck!
 
