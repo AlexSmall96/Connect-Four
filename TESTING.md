@@ -21,6 +21,10 @@ Throughout this section, tests have been divided into sections based on each sta
 |1.11   |Input Validation| Entering 'yellow' takes the user to the game play screen |'yellow' is entered and game screen loads as expected  |Pass|
 |1.12   |Loading Information| Entering 'red' at color selection results in red counter appearing during gameplay prompts|'red' is entered gameplay input message appears with red counter  |Pass|
 |1.13   |Loading Information| Entering 'yellow' at color selection results in red counter appearing during gameplay prompts|'red' is entered and gameplay input message appears with red counter  |Pass|
+|1.14   |Input Validation| Entering 2 results in a prompt for payer 1 to enter username, followed by a prompt for player 2 to enter username once player 1 has completed input |2 is entered and prompt 1 appears, followed by prompt 2 upon completing prompt 1 input |Pass|
+|1.15   |Input Validation| If usernames are the same, a message stating usernames must be different appears, and both users are asked to reselect usernames  |Username is entered for both players and feedback appears as expected|Pass|
+|1.16   |Loading Information| Once both usernames are selected, player 1 is prompted to select their color |Both usernames are entered, and player 1 username appears asking them to select a color|Pass|
+|1.17   |Logic| Player 2's color is automatically assigned to the color that player 1 didn't select |Player 1 selects red and player 2 is assigned yellow |Pass|
 
 ### Screenshots where applicable for Game Setup
 
@@ -44,7 +48,15 @@ Throughout this section, tests have been divided into sections based on each sta
 :-------------------------:|:-------------------------:
 ![](documentation/images/1.12.png) | ![](documentation/images/1.13.png)
 
-### Game Play
+1.14                       | 1.15
+:-------------------------:|:-------------------------:
+![](documentation/images/1.14.png) | ![](documentation/images/1.15.png)
+
+1.16                       |1.17
+:-------------------------:|:-------------------------:
+![](documentation/images/1.16.png)|![](documentation/images/1.17.png)
+
+### Game Play - Single Player Mode
 
 | Test | Category         | Expected Result                     | Actual Result                                              | Pass/Fail |
 |------|------------------|-------------------------------------|------------------------------------------------------------|-----------|
@@ -52,19 +64,32 @@ Throughout this section, tests have been divided into sections based on each sta
 |2.2   |Input Validation  | Numbers outwith 0 - 6 cannot be entered to column selection| '7' is entered and feedback is given to user to choose a whole number between 0 and 6 |Pass|
 |2.3   |Input Validation  | Non integers cannot be entered to column selection| '1.5' is entered and feedback is given to user to choose a whole number between 0 and 6 |Pass|
 |2.4   |Loading Information  | When a whole number between 0 and 6 is entered, the current users counter is added to the corresponding column | '6' is entered and a counter appears in column 6 |Pass|
-|2.5   |Logic | In human vs computer mode, a computer is thinking message appears once user enters column selection | Users counter is added and message appears as expected |Pass|
+|2.5   |Logic | Computer is thinking message appears once user enters column selection | Users counter is added and message appears as expected |Pass|
+|2.6   |Logic | When user selects a column with counter already on it, the counter is added to the next row up | User selects column and counter appears above highest counter in column as expcted |Pass|
+|2.7   |Logic | Once computer is thinking message dissapears, computers counter appears in a random column (computer column choice is non random in certain cases - see [Win Detection](#win-detection)) | Computer message dissapears and the correspoinding counter color is added to the game area |Pass|
+|2.8   |Logic | If computer chooses a column that already has a counter in it, the computers counter is added to the next row up | Computer chooses a column with counter on bottom row and counter is added to row directly above as expected |Pass|
+|2.9   |Logic | If user chooses a column that is full, a message stating column is full appears and user is prompted to reselect a column| Full column is chosen and feedback is given to user as expected |Pass|
 
-2.1                        | 2.2
-:-------------------------:|:-------------------------:
-![](documentation/images/2.1.png) | ![](documentation/images/2.2.png)
+2.1                        | 2.2                      |2.3
+:-------------------------:|:-------------------------:|:-------------------------:
+![](documentation/images/2.1.png) | ![](documentation/images/2.2.png)|![](documentation/images/2.3.png)
 
-2.3                        | 2.4
-:-------------------------:|:-------------------------:
-![](documentation/images/2.3.png) | ![](documentation/images/2.4.png)
+2.4                        | 2.5         
+:-------------------------:|:-------------------------: 
+![](documentation/images/2.4a.png) ![](documentation/images/2.4b.png) |![](documentation/images/2.5.png) 
 
-2.5                        | 2.4
+2.6                        | 2.7
 :-------------------------:|:-------------------------:
-![](documentation/images/2.5.png) | ![](documentation/images/2.4.png)
+ ![](documentation/images/2.6a.png)![](documentation/images/2.6b.png)| ![](documentation/images/2.6b.png)
+
+ 2.8                        | 2.9         
+:-------------------------:|:-------------------------: 
+![](documentation/images/2.8a.png) ![](documentation/images/2.8b.png) |![](documentation/images/2.9.png) 
+
+### Game Play - Two Player Mode
+
+### Win Detection
+
 
 ### Issues Found
  
