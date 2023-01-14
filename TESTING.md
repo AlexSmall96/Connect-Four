@@ -21,7 +21,7 @@ Throughout this section, tests have been divided into sections based on each sta
 |1.11   |Input Validation| Entering 'yellow' takes the user to the game play screen |'yellow' is entered and game screen loads as expected  |Pass|
 |1.12   |Loading Information| Entering 'red' at color selection results in red counter appearing during gameplay prompts|'red' is entered gameplay input message appears with red counter  |Pass|
 |1.13   |Loading Information| Entering 'yellow' at color selection results in yellow counter appearing during gameplay prompts|'red' is entered and gameplay input message appears with red counter  |Pass|
-|1.14   |Loading Information|| Entering 2 at select number of players stage results in a prompt for payer 1 to enter username, followed by a prompt for player 2 to enter username once player 1 has completed input |2 is entered and prompt 1 appears, followed by prompt 2 upon completing prompt 1 input |Pass|
+|1.14   |Loading Information| Entering 2 at select number of players stage results in a prompt for payer 1 to enter username, followed by a prompt for player 2 to enter username once player 1 has completed input |2 is entered and prompt 1 appears, followed by prompt 2 upon completing prompt 1 input |Pass|
 |1.15   |Input Validation| If usernames are the same, a message stating usernames must be different appears, and both users are asked to reselect usernames  |Username is entered for both players and feedback appears as expected|Pass|
 |1.16   |Loading Information| Once both usernames are selected, player 1 is prompted to select their color |Both usernames are entered, and player 1 username appears asking them to select a color|Pass|
 |1.17   |Logic| Player 2's color is automatically assigned to the color that player 1 didn't select |Player 1 selects red and player 2 is assigned yellow |Pass|
@@ -112,14 +112,47 @@ Throughout this section, tests have been divided into sections based on each sta
 
 | Test | Category         | Expected Result                     | Actual Result                                              | Pass/Fail |
 |------|------------------|-------------------------------------|------------------------------------------------------------|-----------|
-|4.1   |Logic | Once one player has selected a column, the other player is prompted with username appearing before message| Prompt message alternates between usernames and counter colors as expected|Pass|
-
+|4.1   |Logic | When a player or computer has a vertical streak of 4 of their counters in any column, the game is ended| Vertical streak is reached in any column and game ends. A sample of columns are given as screenshots |Pass|
+|4.2  |Logic | When a player or computer has a horizontal streak of 4 of their counters in any row, the game is ended| Horizontal streak is reached in any row and game ends. A sample of rows are given as screenshots |Pass|
+|4.3  |Logic | When a player or computer has a diagonal streak of 4 of their counters the game is ended| Diagonal streak is reached  and game ends. A sample of scenarios are given as screenshots |Pass|
+|second last   |Logic | When a player wins the game, a well done message appears containing their username | User wins and message appears as expected |Pass|
+|last  |Logic | When the computer wins, a message containing the players username appears stating computer has won| Computer wins and message appears as expected|Pass|
 
 ### Screenshots where applicable for Win Detection
+
+- For tests 4.1, 4.2 and 4.3, a sample of scenarios have been given as screenshots. Examining the logic in board.check_winner function, shows that the below screenshots can be extrapolated as evidence of all scenarios passing the test. The Function is also independent of wether computer or human played the streak, therefore the given screenshots also apply to single player mode.
+
+- 4.1 : Below is a sample of scenarios where a vertical win has been detected. 
+
+6th column red win                      | 3rd column yellow win | 
+:-------------------------:|:-------------------------: 
+![](documentation/images/4.1a.png)| ![](documentation/images/4.1b.png)  
+
+
+
+- 4.2 : Below is a sample of scenarios where a horizontal win has been detected. Above each image, the column range over which the streak is achieved is given.
+
+0 - 3 yellow win    | 1 - 4 yellow win        | 2 - 5 red win | 3 - 6 red win
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------: 
+![](documentation/images/4.2a.png)| ![](documentation/images/4.2b.png)| ![](documentation/images/4.2c.png) |![](documentation/images/4.2d.png) 
+
+
+- 4.3 Below is a sample of scenarios where a diagonal win has been detected. Above each image, the column range over which the streak is achieved is given, along with the slope direction.
+
+0 - 3 upwards red win  | 1 - 4 upwards red win      |  2 - 5 upwards red win |  3 - 6 upwards red win
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------: 
+![](documentation/images/4.3a.png)| ![](documentation/images/4.3b.png)| ![](documentation/images/4.3c.png) |![](documentation/images/4.3d.png) 
+
+0 - 3 downwards yellow win  | 1 - 4 downwards yellow win      |  2 - 5 downwards yellow win |  3 - 6 downwards yellow win
+:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------: 
+![](documentation/images/4.3e.png)| ![](documentation/images/4.3f.png)| ![](documentation/images/4.3g.png) |![](documentation/images/4.3h.png) 
+
+
+
 
 ### Replay and Exiting Game
 
-### Screenshots where applicable for Win Detection
+### Screenshots where applicable for Replay and Exiting Game
 
 ### Issues Found
  
