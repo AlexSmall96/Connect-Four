@@ -1,6 +1,21 @@
 # Testing
+Back to [README.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/README.md).
 ## Table of Contents
- 
+ - [Testing](#testing)
+  * [Table of Contents](#table-of-contents)
+  * [Manual Testing](#manual-testing)
+    + [Game Setup](#game-setup)
+    + [Screenshots where applicable for Game Setup](#screenshots-where-applicable-for-game-setup)
+    + [Game Play - Single Player Mode](#game-play---single-player-mode)
+    + [Screenshots where applicable for Game Play - Single Player Mode](#screenshots-where-applicable-for-game-play---single-player-mode)
+    + [Game Play - Two Player Mode](#game-play---two-player-mode)
+    + [Screenshots where applicable for Game Play - Two Player Mode](#screenshots-where-applicable-for-game-play---two-player-mode)
+    + [Win Detection](#win-detection)
+    + [Screenshots where applicable for Win Detection](#screenshots-where-applicable-for-win-detection)
+    + [Replay and Exiting Game](#replay-and-exiting-game)
+    + [Screenshots where applicable for Replay and Exiting Game](#screenshots-where-applicable-for-replay-and-exiting-game)
+  * [User Stories Testing](#user-stories-testing)
+  * [Validation Testing](#validation-testing)
 ## Manual Testing
 Throughout this section, tests have been divided into sections based on each stage of the game sequence, and marked as a certain category. The expected and actual results are given, along with a pass/fail indicator. Each test has a unique reference number and, where applicable, these numbers are matched to screenshots of the test results below each table.
  
