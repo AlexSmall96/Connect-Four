@@ -1,5 +1,7 @@
 # Connect Four
+This python terminal application is an arcade style version of the classic game Connect Four.
 
+The game has a classic arcade feel to it, which fits well within the limits of a python terminal application. The application prints a board and counters to the terminal to illustrate the game, and is updated through user input. The game can be played as a two player game, with both players operating the same device, or as a one player game, with the user playing against the computer. The computer choice is mostly random, but the computer has some intelligence programmed in as it blocks streaks of 4 being played by the user and can detect when itself is about to win. The user(s) can select their usernames, and the game is replayable, giving the user a customised, complete experience. 
 
 ## Live Site 
 [https://connect-four-python.herokuapp.com/](https://connect-four-python.herokuapp.com/)
@@ -15,10 +17,10 @@ Alex Small
 
 # UX
 ## Target Audience
-
+The application is targeted towards anyone, with adults appreciating the retro arcade style, playful computer messages and the basic articifical intelligence involved.  Children can enjoy the ability to play a fully functioning game on a simple terminal environment.
  
 ## Project Goals
-
+The goal of this project was to create a game that displayed enough complexity in the python code, that could also be visualised creatively and engagingly in the python terminal. Due to the rules of the game, the logic required to create fully functioning connect four application is quite complex at times, particularly with win detection. The project also aims to provide a user friendly experience, with easy to follow instructions, simple input methods and a customizable and replayable experience.
 
 ## User Stories
 ### Site User
@@ -62,6 +64,12 @@ Commiserations message | ![](documentation/images/computer_won.png)| Further per
 Goodbye message | ![](documentation/images/goodbye.png)| Completes the exerience with a simple goodbye message, thanking the user for playing and allows them to visit the developers github profile to explore more projects.
 
 ## Future Features
+
+- More complex Artificial Intelligence algorithms could be implemented to make the computer perform better and therefore make single player mode more challenging. A common algorithm that is used in game theory is known as a [Minimax](https://en.wikipedia.org/wiki/Minimax) algorithm, which could be implemented in this case.
+
+- Another feature that could be developed is the ability to play two player mode online with another player. 
+
+- Further developments of this project may involve fixing the bug detailed in the Issues Found Section of [TESTING.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/TESTING.md). When the 'Computer is thinking message...' is displayed, the user is still able to input a column choice, which affects their future inputs and results in multiple counters appearing on the board at once.
 
 ## Testing
 Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/TESTING.md).
