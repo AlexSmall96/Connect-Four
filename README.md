@@ -2,12 +2,12 @@
 
 
 ## Live Site 
-[https://alexsmall96.github.io/Pairs/](https://alexsmall96.github.io/Pairs/)
+[https://connect-four-python.herokuapp.com/](https://connect-four-python.herokuapp.com/)
 
-![](assets/documentation/images/am-i-responsive.png)
+![](documentation/images/live_site_1.png) | ![](documentation/images/live_site_2.png)
 
 ## Repository 
-[https://alexsmall96.github.io/Pairs/](https://github.com/AlexSmall96/Pairs)
+[https://github.com/AlexSmall96/Connect-Four](https://github.com/AlexSmall96/Connect-Four)
 
 ## Author 
 Alex Small
@@ -46,8 +46,20 @@ The features of the site are given below, along with an image and its value to t
 
 Feature                    |    Image                   |         Value to User
 :-------------------------:|:-------------------------: | :-------------------------: 
-                           |                            |          
-
+Title                      | ![](documentation/images/Title.png)| An eye catching title to draw the users attention, stating clearly what game it is and giving the user an idea of the arcade style of the game  
+Welcome Message             | ![](documentation/images/welcome.png)| A welcoming message, setting up the playful theme of the game. Gives the user the ability to choose when the instructions are loaded by pressing enter.      
+Instructions            | ![](documentation/images/instructions.png)| Details the instructions clearly, both the rules of the game and how to input information. Gives the user the ability to choose when to load the next screen by pressing enter.
+No. of players selection          | ![](documentation/images/no_players.png)| Allows the user to choose wether to play against the computer or another player using the same device. This allows the user to always be able to play even if they are alone.
+Username selection         | ![](documentation/images/usernames.png)| Allows the user(s) to choose their username(s), which personalises the game and makes the feedback messages more engaging.
+Game area         | ![](documentation/images/game_area.png)| Bright colours allow the user to clearly see their counters on the board, the baord itself is well structured making the game feel more realistic and giving the players clear feedback on their progress.
+Column input        | ![](documentation/images/input.png)| Provides the user with a simple and intuitive way of inputting their column choice to add a counter to the game board
+Win detection       | ![](documentation/images/win_detection.png)| Gives the user the complete experience of playing a fully functioning connect four game, with vertical, horizontal and diagonal wins being detected.
+Win feedback message | ![](documentation/images/win_feedback.png)| Provides the user with a personalised well done message when they win the game, containing their username.
+Replay option | ![](documentation/images/win_feedback.png)| Allows the user to smoothly and efficiently replay the game, reselecting the game mode, usernames and colors. This creates a complete and enjoyable experience for the user.
+Computer is thinking message | ![](documentation/images/computer_thinkin.png)| Makes the game more engaging and fun, and gives the user the feeling of playing against an intelligent computer.
+Computer win detection and prevention | ![](documentation/images/4.5.png)| Allows the user to experience a fully functioning game even in single player mode, with the computer making intelligent decisions.
+Commiserations message | ![](documentation/images/computer_won.png)| Further personalises the game, completing the experience with a message containing their username
+Goodbye message | ![](documentation/images/goodbye.png)| Completes the exerience with a simple goodbye message, thanking the user for playing and allows them to visit the developers github profile to explore more projects.
 
 ## Future Features
 

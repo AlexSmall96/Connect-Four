@@ -197,7 +197,7 @@ As a site user I want to:
 - Customise elements of the game such as username
   - The user has choice regarding their username, counter color and wether they play against the computer or another user on the same device.
 - Recieve clear feedback on the outcome of the game
-  - In two player mode, the winner is stated with a well done message containing their username and counter color. In single player mode, if the user loses, a commiserations message appears stating that the computer one, which also contains the players username.
+  - Throughout the game, the counters are bright and easy to see, the game baord is well structured making it easy to keep track of progress in the game. In two player mode, the winner is stated with a well done message containing their username and counter color. In single player mode, if the user loses, a commiserations message appears stating that the computer one, which also contains the players username.
 - Have the ability to replay the game
   - Once the game has ended, the user can choose to replay the game, with the instructions, username selection, no of players selection and counter color selection all reappearing, before the game screen reloads.
  
