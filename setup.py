@@ -1,6 +1,18 @@
-import os
+"""
+Contains all functions to setup the game,
+along with the main function to run the game sequence
+"""
+
+# Import time to display messages for longer
 import time
+
+# Import to os to allow the terminal to be cleared
+import os
+
+# Import the class Board to create the game play area
 from board import Board
+
+# Import counters to be added to the board
 from board import counters
 
 

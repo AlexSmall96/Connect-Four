@@ -1,3 +1,7 @@
+"""
+Main module to run the game and call all other functions
+"""
+
 import setup
 
 setup.print_title()
