@@ -202,18 +202,18 @@ As a site user I want to:
   - Once the game has ended, the user can choose to replay the game, with the instructions, username selection, no of players selection and counter color selection all reappearing, before the game screen reloads.
  
 ## Validation Testing
- 
- All three .py files have been validated through the [Code Institute Python Validator](https://pep8ci.herokuapp.com/). run.py and setup.py passed with no errors or warnings. board.py had two warnings regarding lines with whitespace, however these keep reappearing after being deleted. As they don't affect any running of the code I chose to ignore these warnings. Screenshots of the results of the validator for each file are given below.
+### Python Validator
+ All three .py files have been validated through the [Code Institute Python Validator](https://pep8ci.herokuapp.com/) and returned clear with no errors found.
 
  - run.py
  
-  ![](documentation/images/run.png)
+  ![](documentation/images/run_2.png)
 
   - setup.py
 
- ![](documentation/images/setup.png)
+ ![](documentation/images/setup_2.png)
 
 - board.py
 
- ![](documentation/images/board.png)
+ ![](documentation/images/board_3.png)
 

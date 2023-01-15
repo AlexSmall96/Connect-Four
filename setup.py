@@ -105,9 +105,9 @@ Enter 1 to play human vs computer or 2 to play human vs human
         # Validate input
         if no_players.isnumeric():
             if int(no_players) == 1 or int(no_players) == 2:
-                return int(no_players)
                 # Set variable to true as validation passed
                 correct_input = True
+                return int(no_players)
             # Retry input
             else:
                 print('Please enter either 1 or 2')

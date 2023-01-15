@@ -241,7 +241,7 @@ class Board:
                             # make column choice random
                             best_column = random.randint(0, 6)
         return best_column
-    
+
     def update_data_computer(self, color, user_colors, usernames):
         """
         Updates the board data based on user input
