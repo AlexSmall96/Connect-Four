@@ -25,6 +25,8 @@ The goal of this project was to create a game that displayed enough complexity i
 ### Game Logic Flowchart
 The below flowchart was used to plan and illustrate the logic of the game. Green arrows signify correct input or proceeding to the next step, while red arrows signify incorrect input.
 
+![](documentation/images/flowchart.png)
+
 ## User Stories
 ### Site User
 
