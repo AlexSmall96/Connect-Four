@@ -11,6 +11,10 @@ def print_title():
     # Clear terminal
     os.system('cls||clear')
     # Assign lines for connect word to list
+    # The symbols in the title were inspired by
+    # https://www.alt-codes.net
+    # The code used to color parts of the title is taken from
+    # https://stackabuse.com/how-to-print-colored-text-in-python/
     connect = [
         ' ▄▀▀▀▀'+'\033[1;31m'+'    ▄▀▀▀▄'+'\033[0;0m'+'    ██   █',
         '██   █    █▀▀▀▀▀     ▄▀▀▀▀   ▀▀▀█▀▀▀',

@@ -2,6 +2,8 @@ import os
 import random
 
 # Create dictionary to map color to visual counter
+# The counter symbols were inspired by 
+# https://www.alt-codes.net
 counters = {}
 counters['red'] = '\033[1;31m' + '●' + '\033[0;0m'
 counters['yellow'] = '\033[1;33m' + '●' + '\033[0;0m'
@@ -25,7 +27,8 @@ class Board:
         """
         Prints the game board in its current state to the terminal
         """
-        # Clear terminal
+        # Clear terminal - the code used to clear the terminal was taken from
+        # https://stackoverflow.com/questions/44565704/how-to-clear-only-last-one-line-in-python-output-console
         os.system('cls||clear')
         # Print board outline
         print('\n')
@@ -177,7 +180,7 @@ class Board:
                 rnge = [self.data[row+2-i][col+2-i] for i in range(4)]
                 if rnge == color_streak:
                     self.running = False
-   
+ 
         # Last counter in 1st position
         if self.running:
             if col <= 3 and row <= 2:
@@ -229,7 +232,7 @@ class Board:
                             # make column choice random
                             best_column = random.randint(0, 6)
         return best_column
-       
+      
     def update_data_computer(self, color, user_colors, usernames):
         """
         Updates the board data based on user input

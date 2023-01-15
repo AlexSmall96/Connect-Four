@@ -70,7 +70,16 @@ Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect
 
 - gitpod
 - github
-- Python Libraries : os, time, random
+- Python
+- Heroku
+
+### Python Libraries Used
+
+- [os](https://docs.python.org/3/library/os.html) : This module provides a portable way of using operating system dependent functionality. It was used in this project to provide a simple way of clearing the terminal after each turn, so the game board can be reprinted. 
+
+- [time](https://docs.python.org/3/library/time.html) : This module provides various time-related functions. The function time.sleep() was used in this project to allow the 'Computer is thinking...' to be displayed for 1.5 seconds, giving the impression of a computer deciding which column to select.
+
+- [random](https://docs.python.org/3/library/random.html) : This module implements pseudo-random number generators for various distributions. It was used in this project in single player mode, when the computer hasn't detected any potential wins the column choice is random.
 
 
 # Deployment
@@ -96,16 +105,17 @@ Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect
 # Credits
 ## Content
 The content of the site is all original thought, however the game itself is based on the classic game [Connect Four](https://en.wikipedia.org/wiki/Connect_Four)
-## Media
 
 ## Code
 The resources used for this project were the CI Python Essentials Module, along with some external resources:
 
-- Description [link text](link address).
+- The code used to color the o's in the title was taken from the following article on [stackabuse](https://stackabuse.com/how-to-print-colored-text-in-python/).
 
+- The symbols used to create the title, board and counters were inspired by [alt-codes.net](https://www.alt-codes.net).
 
+- The code used to clear the last line of the terminal when 'Computer is thinking message ...' displays was taken from the following forum [stackoverflow](https://stackoverflow.com/questions/44565704/how-to-clear-only-last-one-line-in-python-output-console).
 
-- All external resources are commented in the code at the relevant places.
+All external resources are commented in the code at the relevant places.
 
 ## Acknowledgements 
 I would like to thank my mentor Harry Dhillon for his encouraging support and detailed feedback throughout this project.
