@@ -187,11 +187,23 @@ Throughout this section, tests have been divided into sections based on each sta
 
  
 ## User Stories Testing
+The site has been tested according to the user stories and fullfills all the needs given:
+As a site user I want to:
 
+- See a visually appealing title that fits the theme of the game
+  - The site loads the title immediately, displaying the words 'Connect Four' in an arcade stlye text. The text is large and bold, with the letter 'o's colored with the game counter colors. The pixelated text fits well with the classic arcade style of a python terminal game.
+- Recieve clear instrucrtions on how to setup and play the game
+  - The user is immediately taken to the instructions screen after the title, the rules of the game itself are explained clearly as well as how to input information. The user has clear instructions as to how to set their username(s) and number of players.
+- Customise elements of the game such as username
+  - The user has choice regarding their username, counter color and wether they play against the computer or another user on the same device.
+- Recieve clear feedback on the outcome of the game
+  - In two player mode, the winner is stated with a well done message containing their username and counter color. In single player mode, if the user loses, a commiserations message appears stating that the computer one, which also contains the players username.
+- Have the ability to replay the game
+  - Once the game has ended, the user can choose to replay the game, with the instructions, username selection, no of players selection and counter color selection all reappearing, before the game screen reloads.
  
 ## Validation Testing
  
- All three .py files have been validated through the [Code Institute Python Validator](https://pep8ci.herokuapp.com/). run.py and setup.py passed with no errors or warnings. board.py had two warnings regarding lines with whitespace, however these keep reappearing on deletion. As they don't affect any running of the code I chose to ignore these warnings. Screenshots of the results of the validator for each file are given below.
+ All three .py files have been validated through the [Code Institute Python Validator](https://pep8ci.herokuapp.com/). run.py and setup.py passed with no errors or warnings. board.py had two warnings regarding lines with whitespace, however these keep reappearing after being deleted. As they don't affect any running of the code I chose to ignore these warnings. Screenshots of the results of the validator for each file are given below.
 
  - run.py
  

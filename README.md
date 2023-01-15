@@ -23,8 +23,22 @@ Alex Small
 ## User Stories
 ### Site User
 
+As a site user I want to:
+
+- See a visually appealing title that fits the theme of the game
+- Recieve clear instrucrtions on how to setup and play the game
+- Customise elements of the game such as username
+- Recieve clear feedback on the outcome of the game
+- Have the ability to replay the game
+
 ### Website Owner
 
+As a site owner I want to:
+
+- Express my design ideas freely and creatively
+- Add my unique ideas to a game such as customisable usernames
+- Write complex logic to ensure the game is fully functional in all play modes
+- Showcase my skills and advertise my portfolio
 
 ## Features
 
