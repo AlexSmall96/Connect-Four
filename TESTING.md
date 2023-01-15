@@ -14,6 +14,7 @@ Back to [README.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/README
     + [Screenshots where applicable for Win Detection](#screenshots-where-applicable-for-win-detection)
     + [Replay and Exiting Game](#replay-and-exiting-game)
     + [Screenshots where applicable for Replay and Exiting Game](#screenshots-where-applicable-for-replay-and-exiting-game)
+    * [Issues Found](#isses-found)
   * [User Stories Testing](#user-stories-testing)
   * [Validation Testing](#validation-testing)
 ## Manual Testing
@@ -185,7 +186,7 @@ Throughout this section, tests have been divided into sections based on each sta
 :-------------------------:|:-------------------------: 
 ![](documentation/images/5.1.png)| ![](documentation/images/5.3.png)  
 
-### Issues Found
+## Issues Found
 In single player mode, when the 'Computer is thinking message...' is displayed, the user can still input their column choice. This input is then accepted as their choice for their next turn, as a result multiple counters can appear on the screen at once. A potential solution to this may be to flush the input stream while the message id displayed, forcing the computer to ignore any inputs from the user untill it is their turn. I chose not to implement this feature as it was beyond the scope of this project. Further research also showed that it may not be compatible with all systems (eg. windows). The following  [Stack Overflow](https://stackoverflow.com/questions/2520893/how-to-flush-the-input-stream) post details the issues and potential solutions.
 
 ## User Stories Testing

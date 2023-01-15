@@ -74,14 +74,15 @@ Goodbye message | ![](documentation/images/goodbye.png)| Completes the exerience
 ## Testing
 Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/TESTING.md).
 
-## Frameworks, Libraries & Programs Used
+## Frameworks & Programs Used
 
 - gitpod
 - github
-- Python
 - Heroku
+- [Markdown Table of Contents Generator](https://ecotrust-canada.github.io/markdown-toc/).
+- Python
 
-### Python Libraries Used
+## Python Libraries Used
 
 - [os](https://docs.python.org/3/library/os.html) : This module provides a portable way of using operating system dependent functionality. It was used in this project to provide a simple way of clearing the terminal after each turn, so the game board can be reprinted. 
 
@@ -93,22 +94,37 @@ Testing is detailed fully in [TESTING.MD](https://github.com/AlexSmall96/Connect
 # Deployment
 ### Deploying the Site to Heroku
 
+1. Create an account on [Heroku](https://id.heroku.com/login) and login.
+2. Navigate to the Dashboard.
+3. Click 'New', 'Create new app'.
+4. Select appropriate name, app names must be unique so 'python-connect-four' will be unavailable.
+5. Select Location.
+6. Click 'Create app'.
+7. Navigate to the 'Settings' tab, click "Reveal Config Vars".
+8. Add a Config Var with KEY : 'PORT' and value : '8000', select 'Add'.
+9. Navigate to the 'Buildpacks' section and click 'Add buildpack'. 
+10. Add in order'python' then 'nodejs' to the buildpacks section. Order can be changed by clicking and dragging.
+11. Navigate to the 'Deployment' tab. For 'Deployment method', select Github.
+12. Under 'Search for a repository to connect to', enter the appropriate Github username and repository name
+13. To deploy the repository, either select 'Enable Automatic Deploys', which deploys the site after each push to Github, or Manually click 'Deploy Branch'
+14. In both deployment methods, the main branch any forked branches may chosen, see [Forking the Repository on Github](#Forking-the-Repository-on-GitHub)
+
 ### Forking the Repository on GitHub
-- On GitHub.com, navigate to the main page of the [Pairs](https://github.com/AlexSmall96/Pairs) repository.
-- In the top-right corner of the page, click Fork.
-- Select an owner for the forked repository.
-- By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further.
-- Optionally, add a description of your fork.
-- Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
-- Click Create fork.
+1. On GitHub.com, navigate to the main page of the [Connect Four](https://github.com/AlexSmall96/Connect-Four) repository.
+2. In the top-right corner of the page, click Fork.
+3. Select an owner for the forked repository.
+4. By default, forks are named the same as their upstream repositories. You can change the name of the fork to distinguish it further.
+5. Optionally, add a description of your fork.
+6. Choose whether to copy only the default branch or all branches to the new fork. For many forking scenarios, such as contributing to open-source projects, you only need to copy the default branch. By default, only the default branch is copied.
+7. Click Create fork.
 ### Cloning the Repository on GitHub
-- On GitHub.com, navigate to the main page of the [Pairs](https://github.com/AlexSmall96/Pairs) repository.
-- Above the list of files, click Code.
-- Copy the URL for the repository.
-- Open Terminal.
-- Change the current working directory to the location where you want the cloned directory.
-- Type git clone, and then paste the URL you copied earlier.
-- Press Enter to create your local clone.
+1. On GitHub.com, navigate to the main page of the [Connect Four](https://github.com/AlexSmall96/Connect-Four) repository.
+2. Above the list of files, click Code.
+3. Copy the URL for the repository.
+4. Open Terminal.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter to create your local clone.
 
 # Credits
 ## Content
