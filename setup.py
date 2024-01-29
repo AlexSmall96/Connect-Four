@@ -120,14 +120,24 @@ def set_usernames(no_players):
     Allows all users to select a username
     """
     if no_players == 1:
-        player_1 = input('Player 1 - Please enter your username ')
-        return [player_1]
+        while True:
+            player_1 = input('Player 1 - Please enter your username. Must not be blank. ')
+            if not (player_1 == "" or player_1.strip() == ""):
+                return [player_1]
     else:
         # Use while loop to ensure input is valid
         correct_input = False
         while not correct_input:
-            player_1 = input('Player 1 - Please enter your username ')
-            player_2 = input('Player 2 - Please enter your username ')
+            empty_username = True
+            while empty_username:
+                player_1 = input('Player 1 - Please enter your username. Must not be blank. ')
+                if not (player_1 == "" or player_1.strip() == ""):
+                    empty_username = False
+            empty_username = True
+            while empty_username:
+                player_2 = input('Player 2 - Please enter your username. Must not be blank. ')
+                if not (player_2 == "" or player_2.strip() == ""):
+                    empty_username = False
             # Validate input
             if player_1.lower() != player_2.lower():
                 # Set variable to true as validation passed
