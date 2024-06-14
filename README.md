@@ -4,8 +4,7 @@ This python terminal application is an arcade-style version of the classic game 
 The game has a classic arcade feel to it, which fits well within the limits of a python terminal application. The application prints a board and counters to the terminal to illustrate the game and is updated through user input. The game can be played as a two-player game, with both players operating the same device, or as a one-player game, with the user playing against the computer. The computer choice is mostly random, but the computer has some intelligence programmed in as it blocks streaks of 4 being played by the user and can detect when it is about to win. The user(s) can select their usernames, and the game is replayable, giving the user a customized, complete experience. 
 
 ## Live Site 
-[https://connect-four-python.herokuapp.com/](https://connect-four-python.herokuapp.com/)
-
+[https://connect-four-kxsw.onrender.com/](https://connect-four-kxsw.onrender.com/)
 ![](documentation/images/live_site_1.png) | ![](documentation/images/live_site_2.png)
 
 ## Repository 
