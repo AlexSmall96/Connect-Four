@@ -7,6 +7,8 @@ The game has a classic arcade feel to it, which fits well within the limits of a
 [https://connect-four-kxsw.onrender.com/](https://connect-four-kxsw.onrender.com/)
 ![](documentation/images/live_site_1.png) | ![](documentation/images/live_site_2.png)
 
+The deployed project is currently on Render's free tier. Projects on this tier spin down during periods of inactivity, therefore, there may be a delay when loading the above URL.
+
 ## Repository 
 [https://github.com/AlexSmall96/Connect-Four](https://github.com/AlexSmall96/Connect-Four)
 
