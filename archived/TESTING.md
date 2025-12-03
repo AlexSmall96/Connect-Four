@@ -1,4 +1,9 @@
 # Testing
+## ⚠️ ARCHIVED
+
+This is an archived testing documentation file from my 2022–2023 bootcamp with [Code Institute](https://codeinstitute.net), kept for historical reference only.  
+It does **not** represent my current skill level or testing practices.
+
 Back to [README.MD](https://github.com/AlexSmall96/Connect-Four/blob/main/README.md).
 ## Table of Contents
   * [Table of Contents](#table-of-contents)
