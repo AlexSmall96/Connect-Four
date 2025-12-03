@@ -1,13 +1,11 @@
 # Connect Four
+## ⚠️ARCHIVED PROJECT
+
+**This is an archived project from my bootcamp with [Code Institute](https://codeinstitute.net) in 2023, kept for historical reference. It does not represent my current skill level or tech stack.**
+
 This python terminal application is an arcade-style version of the classic game Connect Four.
 
 The game has a classic arcade feel to it, which fits well within the limits of a python terminal application. The application prints a board and counters to the terminal to illustrate the game and is updated through user input. The game can be played as a two-player game, with both players operating the same device, or as a one-player game, with the user playing against the computer. The computer choice is mostly random, but the computer has some intelligence programmed in as it blocks streaks of 4 being played by the user and can detect when it is about to win. The user(s) can select their usernames, and the game is replayable, giving the user a customized, complete experience. 
-
-## Live Site 
-[https://connect-four-kxsw.onrender.com/](https://connect-four-kxsw.onrender.com/)
-![](documentation/images/live_site_1.png) | ![](documentation/images/live_site_2.png)
-
-The deployed project is currently on Render's free tier. Projects on this tier spin down during periods of inactivity, therefore, there may be a delay when loading the above URL.
 
 ## Repository 
 [https://github.com/AlexSmall96/Connect-Four](https://github.com/AlexSmall96/Connect-Four)
